@@ -11,7 +11,7 @@ rofi -show drun &
 export QT_QPA_PLATFORMTHEME=qt5ct &
 sh ~/.scripts/polkit.sh &
 xautolock -time 10 -locker betterlockscreen &
-kdeconnect-indicator &
+# kdeconnect-indicator &
 # redshift -l $(curl -s "https://location.services.mozilla.com/v1/geolocate?key=geoclue" | awk 'OFS=":" {print $3,$5}' | tr -d ',}') &
 
 pgrep -x sxhkd > /dev/null || sxhkd &
