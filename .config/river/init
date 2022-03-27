@@ -11,13 +11,14 @@
 # Note: the "Super" modifier is also known as Logo, GUI, Windows, Mod4, etc.
 
 #autostarts
-waybar &
-dunst &
-swaybg -m fill -i ~/Pictures/bluetrees.jpg &
-# nm-applet &
-# blueman-applet &
-rofi -show drun &
-sh ~/.scripts/polkit.sh &
+riverctl spawn waybar
+riverctl spawn dunst
+riverctl spawn "swaybg -m fill -i ~/Pictures/bluetrees.jpg"
+riverctl spawn 'sh /home/kia/.scripts/polkit.sh'
+# riverctl spawn /home/kia/scripts/waylanddisplay.sh 
+riverctl spawn "rofi -show drun"
+# riverctl spawn 'nm-applet --indicator'
+# riverctl spawn 'blueman-applet'
 
 # mod4 + return starts terminal
 riverctl map normal Super Return spawn alacritty
@@ -29,11 +30,15 @@ riverctl map normal Super Q close
 riverctl map normal Super D spawn 'rofi -show drun'
 
 # restart river / reload config
-riverctl map normal Super+Alt R spawn '/home/kia/.config/river/init'
+# reloading config not recommended, logout and login yourself
+# riverctl map normal Super+Alt R spawn '/home/kia/.config/river/init'
 
 # Super+Shift+E to exit river
 # riverctl map normal Super+Shift E exit
 riverctl map normal Super+Shift X spawn 'sh /home/kia/.config/rofi/powermenu/powermenu.sh'
+
+# screenshot using grim and slurp
+riverctl map normal None print spawn 'grim -g "$(slurp)" $HOME/Pictures/Screenshots/$(date +'screenshot_%y-%m-%d-%H:%M.png')'
 
 # Super+J and Super+K to focus the next/previous view in the layout stack
 riverctl map normal Super J focus-view next
@@ -136,10 +141,8 @@ riverctl map passthrough Super F11 enter-mode normal
 # not have a modifier
 for mode in normal locked
 do
-    # Eject the optical drive (well if you still have one that is)
-    # riverctl map $mode None XF86Eject spawn 'eject -T'
 
-    # Control pulse audio volume with pamixer (https://github.com/cdemoulins/pamixer)
+    # Control pulse audio volume with pactl
     riverctl map $mode None XF86AudioRaiseVolume  spawn 'pactl set-sink-volume @DEFAULT_SINK@ +2%'
     riverctl map $mode None XF86AudioLowerVolume  spawn 'pactl set-sink-volume @DEFAULT_SINK@ -2%'
     riverctl map $mode None XF86AudioMute         spawn 'pactl set-sink-mute @DEFAULT_SINK@ toggle'
@@ -170,6 +173,11 @@ riverctl float-filter-add app-id "Rofi"
 
 # Set app-ids and titles of views which should use client side decorations
 # riverctl csd-filter-add app-id "gedit"
+riverctl csd-filter-add app-id "Rofi"
+
+# XDG PORTAL STUFF
+riverctl spawn "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=river"
+riverctl spawn "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=river"
 
 # Set and exec into the default layout generator, rivertile.
 # River will send the process group of the init executable SIGTERM on exit.
