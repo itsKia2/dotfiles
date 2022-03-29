@@ -74,9 +74,9 @@ listview {
   columns:      1;
   fixed-height: 0;
   border:       0px;
-  spacing:      10px;
+  spacing:      6px;
   scrollbar:    false;
-  margin:       20px 0px;
+  margin:       10px 0px;
 }
 
 element {

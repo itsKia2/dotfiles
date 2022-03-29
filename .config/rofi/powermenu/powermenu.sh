@@ -3,9 +3,6 @@
 
 dir="$HOME/.config/rofi/powermenu"
 
-
-
-
 uptime=$(uptime -p | sed -e 's/up //g')
 
 # rofi_command="rofi -theme $dir/powermenu.rasi"
@@ -59,8 +56,8 @@ case $chosen in
         ;;
     $lock)
 	
-		if [[ -f /usr/bin/betterlockscreen ]]; then
-			betterlockscreen -l
+		if [[ -f /usr/bin/swaylock ]]; then
+			swaylock
 		fi
         ;;
     $suspend)

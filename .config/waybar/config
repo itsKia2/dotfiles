@@ -63,7 +63,7 @@
     
     "wlr/taskbar": {
         "all-outputs": false,
-	    "current-only":false,
+	    "current-only": false,
         "format": "{icon}",
         "icon-size": 12,
         "icon-theme": "Papirus",
