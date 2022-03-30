@@ -15,11 +15,11 @@ riverctl spawn waybar
 riverctl spawn dunst
 riverctl spawn "swaybg -m fill -i ~/Pictures/bluetrees.jpg"
 riverctl spawn 'sh /home/kia/.scripts/polkit.sh'
-riverctl spawn "rofi -show drun"
+# riverctl spawn "rofi -show drun"
+riverctl spawn 'wofi --show drun' 
 # riverctl spawn 'nm-applet --indicator'
 riverctl spawn 'blueman-applet'
-riverctl spawn '/usr/lib/kdeconnectd'
-riverctl spawn 'sleep 10; kdeconnect-indicator'
+riverctl spawn 'sh /home/kia/.scripts/startkdeconnect.sh'
 
 # mod4 + return starts terminal
 riverctl map normal Super Return spawn alacritty
@@ -27,8 +27,9 @@ riverctl map normal Super Return spawn alacritty
 # Super+Q to close the focused view
 riverctl map normal Super Q close
 
-# rofi
-riverctl map normal Super D spawn 'rofi -show drun'
+# rofi / wofi
+# riverctl map normal Super D spawn 'rofi -show drun'
+riverctl map normal Super D spawn 'wofi --show drun'
 
 # restart river / reload config
 # reloading config not recommended, logout and login yourself
@@ -36,7 +37,8 @@ riverctl map normal Super D spawn 'rofi -show drun'
 
 # Super+Shift+E to exit river
 # riverctl map normal Super+Shift E exit
-riverctl map normal Super+Shift X spawn 'sh /home/kia/.config/rofi/powermenu/powermenu.sh'
+# riverctl map normal Super+Shift X spawn 'sh /home/kia/.config/rofi/powermenu/powermenu.sh'
+riverctl map normal Super+Shift X spawn 'sh /home/kia/.config/wofi/wofi-powermenu.sh'
 
 # screenshot using grim and slurp
 riverctl map normal None print spawn 'grim -g "$(slurp)" $HOME/Pictures/Screenshots/$(date +'screenshot_%y-%m-%d-%H:%M.png')'
@@ -177,6 +179,10 @@ riverctl float-filter-add app-id "Rofi"
 
 # Set app-ids and titles of views which should use client side decorations
 # riverctl csd-filter-add app-id "gedit"
+
+# touchpad settings
+riverctl input 1267:12363:ELAN469D:00_04F3:304B_Touchpad tap enabled
+riverctl input 1267:12363:ELAN469D:00_04F3:304B_Touchpad drag enabled
 
 # XDG PORTAL STUFF
 riverctl spawn "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=river"
