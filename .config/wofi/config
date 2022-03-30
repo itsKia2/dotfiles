@@ -1,0 +1,5 @@
+allow_images=true
+image_size=20
+term=alacritty
+width=30%
+height=45%
