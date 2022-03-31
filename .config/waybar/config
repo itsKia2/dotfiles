@@ -3,6 +3,7 @@
     "layer": "top",
     "position": "bottom",
     "height": 25,
+    "gtk-layer-shell": false,
 
     "modules-left": ["river/tags",],
     "modules-center": [],

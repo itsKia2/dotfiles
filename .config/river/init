@@ -41,7 +41,8 @@ riverctl map normal Super D spawn 'wofi --show drun'
 riverctl map normal Super+Shift X spawn 'sh /home/kia/.config/wofi/wofi-powermenu.sh'
 
 # screenshot using grim and slurp
-riverctl map normal None print spawn 'grim -g "$(slurp)" $HOME/Pictures/Screenshots/$(date +'screenshot_%y-%m-%d-%H:%M.png')'
+# riverctl map normal None print spawn 'grim -g "$(slurp)" $HOME/Pictures/Screenshots/$(date +'screenshot_%y-%m-%d-%H:%M.png')'
+riverctl map normal None print spawn 'env XDG_CURRENT_DESKTOP=sway flameshot gui'
 
 # lock screen (swaylock-effects)
 riverctl map normal Super KP_Add spawn swaylock
@@ -176,6 +177,8 @@ riverctl set-repeat 50 300
 riverctl float-filter-add app-id float
 riverctl float-filter-add title "popup title with spaces"
 riverctl float-filter-add app-id "Rofi"
+riverctl float-filter-add app-id "flameshot"
+riverctl float-filter-add title "flameshot"
 
 # Set app-ids and titles of views which should use client side decorations
 # riverctl csd-filter-add app-id "gedit"
@@ -185,8 +188,10 @@ riverctl input 1267:12363:ELAN469D:00_04F3:304B_Touchpad tap enabled
 riverctl input 1267:12363:ELAN469D:00_04F3:304B_Touchpad drag enabled
 
 # XDG PORTAL STUFF
-riverctl spawn "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=river"
-riverctl spawn "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=river"
+riverctl spawn "systemctl --user import-environment DISPLAY WAYLAND_DISPLAY"
+riverctl spawn "dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY"
+riverctl spawn "export XDG_CURRENT_DESKTOP=river"
+riverctl spawn "systemctl --user start xdg-desktop-portal-gtk"
 
 # Set and exec into the default layout generator, rivertile.
 # River will send the process group of the init executable SIGTERM on exit.
