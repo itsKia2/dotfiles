@@ -103,15 +103,13 @@ export LANG=en_US.UTF-8
 #
 # aliases
 alias polyconfig="vim ~/.config/polybar/config"
-alias swayconfig="vim ~/.config/sway/config"
 alias zshconfig="vim ~/.config/zsh/.zshrc"
 alias bspconfig="vim ~/.config/bspwm/bspwmrc"
 alias sxhconfig="vim ~/.config/sxhkd/sxhkdrc"
 alias picomconfig="vim ~/.config/picom/picom.conf"
 alias riverconfig="vim ~/.config/river/init"
 alias waybarconfig="vim ~/.config/waybar/config ~/.config/waybar/style.css"
-alias giveclass="xprop | grep WM_CLASS"
-alias updatemirrors="sudo reflector --verbose -l 200 -f 10 -c Germany -c France -c Indonesia -c Netherlands -c Pakistan -c Singapore -c Sweden -c GB --ipv4 --protocol http,https --sort rate --save /etc/pacman.d/mirrorlist"
 alias alacrittyconfig="vim ~/.config/alacritty/alacritty.yml"
+alias updatemirrors="sudo reflector --verbose -l 200 -f 10 -c Germany -c France -c Indonesia -c Netherlands -c Pakistan -c Singapore -c Sweden -c GB --ipv4 --protocol http,https --sort rate --save /etc/pacman.d/mirrorlist"
 alias vim="nvim"
 alias dotconfig='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'

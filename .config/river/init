@@ -15,9 +15,7 @@ riverctl spawn waybar
 riverctl spawn dunst
 riverctl spawn "swaybg -m fill -i ~/Pictures/bluetrees.jpg"
 riverctl spawn 'sh /home/kia/.scripts/polkit.sh'
-# riverctl spawn "rofi -show drun"
 riverctl spawn 'wofi --show drun' 
-# riverctl spawn 'nm-applet --indicator'
 riverctl spawn 'blueman-applet'
 riverctl spawn 'sh /home/kia/.scripts/startkdeconnect.sh'
 
@@ -43,6 +41,9 @@ riverctl map normal Super+Shift X spawn 'sh /home/kia/.config/wofi/wofi-powermen
 # screenshot using grim and slurp
 # riverctl map normal None print spawn 'grim -g "$(slurp)" $HOME/Pictures/Screenshots/$(date +'screenshot_%y-%m-%d-%H:%M.png')'
 riverctl map normal None print spawn 'env XDG_CURRENT_DESKTOP=sway flameshot gui'
+
+# activating dunst notification
+riverctl map normal Shift+Control Period spawn "dunstctl context"
 
 # lock screen (swaylock-effects)
 riverctl map normal Super KP_Add spawn swaylock
@@ -190,7 +191,6 @@ riverctl input 1267:12363:ELAN469D:00_04F3:304B_Touchpad drag enabled
 # XDG PORTAL STUFF
 riverctl spawn "systemctl --user import-environment DISPLAY WAYLAND_DISPLAY"
 riverctl spawn "dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY"
-riverctl spawn "export XDG_CURRENT_DESKTOP=river"
 riverctl spawn "systemctl --user start xdg-desktop-portal-gtk"
 
 # Set and exec into the default layout generator, rivertile.
