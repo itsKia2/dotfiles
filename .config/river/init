@@ -17,6 +17,7 @@ riverctl spawn "swaybg -m fill -i ~/Pictures/bluetrees.jpg"
 riverctl spawn 'sh /home/kia/.scripts/polkit.sh'
 riverctl spawn 'wofi --show drun' 
 riverctl spawn 'blueman-applet'
+riverctl spawn 'nm-applet --indicator'
 riverctl spawn 'sh /home/kia/.scripts/startkdeconnect.sh'
 
 # mod4 + return starts terminal
@@ -162,8 +163,12 @@ do
     riverctl map $mode None XF86AudioNext  spawn 'playerctl next'
 
     # Control screen backlight brighness with acpilight (xbacklight)
-    riverctl map $mode None XF86MonBrightnessUp   spawn 'xbacklight -inc 2'
-    riverctl map $mode None XF86MonBrightnessDown spawn 'xbacklight -dec 2'
+    # riverctl map $mode None XF86MonBrightnessUp   spawn 'xbacklight -inc 2'
+    # riverctl map $mode None XF86MonBrightnessDown spawn 'xbacklight -dec 2'
+
+    # control screen backlight brightness with light
+    riverctl map $mode None XF86MonBrightnessUp   spawn 'light -A 1'
+    riverctl map $mode None XF86MonBrightnessDown spawn 'light -U 1'
 done
 
 # Set background and border color
