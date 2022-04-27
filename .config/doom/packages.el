@@ -51,3 +51,5 @@
 
 (package! org-superstar)
 (package! company-lsp)
+(package! tree-sitter)
+(package! tree-sitter-langs)

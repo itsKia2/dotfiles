@@ -25,7 +25,11 @@
 (setq lsp-completion-show-detail t)
 (use-package lsp-mode)
 
-;;(setq company-backends '(company-lsp)')
+(use-package! tree-sitter
+  :config
+  (require 'tree-sitter-langs)
+  (global-tree-sitter-mode)
+  (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode))
 
 ;;vterm keybinds
 (global-set-key (kbd "M-T") 'vterm)
