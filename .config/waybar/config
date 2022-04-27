@@ -7,7 +7,7 @@
 
     "modules-left": ["river/tags",],
     "modules-center": [],
-    "modules-right": ["pulseaudio", "battery", "network", "clock", "tray"],
+    "modules-right": ["pulseaudio", "battery", "backlight", "network", "clock", "tray"],
 
 
     "battery": {
@@ -43,6 +43,12 @@
         "format": "   {}% ",
         "max-length": 10,
    },
+
+   "backlight": {
+        "device": "intel_backlight",
+        "format": "{percent}% {icon}",
+        "format-icons": ["", ""]
+    },
 
   "memory": {
        "interval": 30,
