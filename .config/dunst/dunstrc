@@ -34,6 +34,7 @@ browser = xdg-open
 always_run_script = true
 title = Dunst
 class = Dunst
+layer = top
 dmenu = /usr/bin/wofi --dmenu -p dunst
 mouse_right_click = do_action
 
