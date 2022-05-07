@@ -13,7 +13,7 @@
 #autostarts
 riverctl spawn waybar
 riverctl spawn dunst
-riverctl spawn "swaybg -m fill -i ~/Pictures/bluetrees.jpg"
+riverctl spawn "swaybg -m fill -i ~/Pictures/wallpaper/bluetrees.jpg"
 riverctl spawn 'sh /home/kia/.scripts/polkit.sh'
 riverctl spawn 'wofi --show drun' 
 riverctl spawn 'blueman-applet'
@@ -21,14 +21,14 @@ riverctl spawn 'nm-applet --indicator'
 riverctl spawn 'sh /home/kia/.scripts/startkdeconnect.sh'
 
 # mod4 + return starts terminal
-riverctl map normal Super Return spawn alacritty
+riverctl map normal Super Return spawn kitty
 
 # Super+Q to close the focused view
 riverctl map normal Super Q close
 
 # rofi / wofi
-# riverctl map normal Super D spawn 'rofi -show drun'
-riverctl map normal Super D spawn 'wofi --show drun'
+riverctl map normal Super D spawn 'rofi -show drun'
+# riverctl map normal Super D spawn 'wofi --show drun'
 
 # restart river / reload config
 # reloading config not recommended, logout and login yourself
@@ -40,8 +40,9 @@ riverctl map normal Super D spawn 'wofi --show drun'
 riverctl map normal Super+Shift X spawn 'sh /home/kia/.config/wofi/wofi-powermenu.sh'
 
 # screenshot using grim and slurp
-# riverctl map normal None print spawn 'grim -g "$(slurp)" $HOME/Pictures/Screenshots/$(date +'screenshot_%y-%m-%d-%H:%M.png')'
-riverctl map normal None print spawn 'env XDG_CURRENT_DESKTOP=sway flameshot gui'
+# riverctl map normal None print spawn 'grim -g "$(slurp)" $HOME/Pictures/Screenshots/$('%F_%H-%M.png')'
+riverctl map normal None print spawn 'sh /home/kia/.scripts/screenshot.sh'
+# riverctl map normal None print spawn 'env XDG_CURRENT_DESKTOP=sway flameshot gui'
 
 # activating dunst notification
 riverctl map normal Shift+Control Period spawn "dunstctl context"
