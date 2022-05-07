@@ -1,7 +1,7 @@
 indicator-caps-lock
 fade-in=0.2
 indicator-idle-visible
-image=/home/kia/Pictures/space1.png
+image=/home/kia/Pictures/wallpaper/space1.png
 clock
 timestr=%I:%M %p
 indicator-x-position=150
