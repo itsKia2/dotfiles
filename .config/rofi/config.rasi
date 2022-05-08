@@ -30,8 +30,8 @@ configuration {
 window {
   border:           0px;
   border-radius:    5px;
-  padding:          30px;
-  width:            30%;
+  padding:          25px;
+  width:            26%;
   background-color: #000000aa;
 }
 scrollbar {
