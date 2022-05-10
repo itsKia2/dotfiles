@@ -15,7 +15,7 @@ riverctl spawn waybar
 riverctl spawn dunst
 riverctl spawn "swaybg -m fill -i ~/Pictures/wallpaper/bluetrees.jpg"
 riverctl spawn 'sh /home/kia/.scripts/polkit.sh'
-riverctl spawn 'wofi --show drun' 
+riverctl spawn 'rofi -show drun' 
 riverctl spawn 'blueman-applet'
 riverctl spawn 'nm-applet --indicator'
 riverctl spawn 'sh /home/kia/.scripts/startkdeconnect.sh'
@@ -184,6 +184,9 @@ riverctl set-repeat 50 300
 riverctl float-filter-add app-id float
 riverctl float-filter-add title "popup title with spaces"
 riverctl float-filter-add app-id "Rofi"
+riverctl float-filter-add app-id "org.kde.dolphin"
+riverctl float-filter-add app-id "org.kde.kdeconnect.app"
+riverctl float-filter-add app-id "zoom"
 riverctl float-filter-add app-id "flameshot"
 riverctl float-filter-add title "flameshot"
 
