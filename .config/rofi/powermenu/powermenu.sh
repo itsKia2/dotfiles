@@ -21,12 +21,12 @@ confirm_exit() {
 		-i\
 		-no-fixed-num-lines\
 		-p "Are You Sure? : "\
-		-theme $dir/confirm.rasi
+		# -theme $dir/confirm.rasi
 }
 
 # Message
 msg() {
-	rofi -theme "$dir/message.rasi" -e "Available Options  -  yes / y / no / n"
+	rofi -e "Available Options  -  yes / y / no / n"
 }
 
 # Variable passed to rofi

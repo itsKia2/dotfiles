@@ -184,7 +184,7 @@ riverctl set-repeat 50 300
 riverctl float-filter-add app-id float
 riverctl float-filter-add title "popup title with spaces"
 riverctl float-filter-add app-id "Rofi"
-riverctl float-filter-add app-id "org.kde.dolphin"
+# riverctl float-filter-add app-id "org.kde.dolphin"
 riverctl float-filter-add app-id "org.kde.kdeconnect.app"
 riverctl float-filter-add app-id "zoom"
 riverctl float-filter-add app-id "flameshot"
