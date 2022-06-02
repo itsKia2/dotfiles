@@ -57,7 +57,7 @@
 
 
 
-window#waybar {
+window #waybar {
     background-color: @colbg;
     color: @colfg;
     transition-property: background-color;
@@ -86,6 +86,7 @@ window#waybar {
 #memory,
 #network,
 #pulseaudio,
+#window,
 #tray,
 
 #tray {

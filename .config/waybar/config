@@ -5,7 +5,7 @@
     "height": 25,
     "gtk-layer-shell": false,
 
-    "modules-left": ["river/tags",],
+    "modules-left": ["river/tags", "river/window",],
     "modules-center": [],
     "modules-right": ["pulseaudio", "battery", "backlight", "network", "clock", "tray"],
 
@@ -30,6 +30,10 @@
         "tooltip": true
     },
 
+    "river/window": {
+        "format": "{}",
+        "max-length": 60
+    },
 
     "clock": {
         "format": "  {: %b %d (%a) %I:%M %p}"
