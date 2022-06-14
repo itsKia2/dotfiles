@@ -10,8 +10,23 @@
 (global-set-key (kbd "C-x C-f") #'helm-find-files)
 (helm-mode 1)
 
-;; hooks for autocomplete (deprecated, requires company-irony)
-;; (add-hook 'python-mode-hook 'anaconda-mode)
+(setq-default indent-tabs-mode nil)
+(setq-default tab-width 4)
+(setq tab-width 4)
+(setq c-basic-offset 4)
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(company-backends '(company-capf)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
 
 ;;org-mode config
 ;;(setq org-ellipsis " ▾"
@@ -22,7 +37,9 @@
 ;; for company-lsp and lsp
 ;;(require 'company-lsp)
 ;;(push 'company-lsp company-backends)
+(setq lsp-signature-render-documentation nil)
 (setq lsp-completion-show-detail t)
+(setq lsp-enable-on-type-formatting t)
 (use-package lsp-mode)
 
 (use-package! tree-sitter
@@ -32,7 +49,7 @@
   (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode))
 
 ;;vterm keybinds
-(global-set-key (kbd "M-T") 'vterm)
+;;(global-set-key (kbd "M-T") 'vterm)
 
 ;;Recreating scratch buffer
 ;; If the *scratch* buffer is killed, recreate it automatically
@@ -78,7 +95,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-one)
+(setq doom-theme 'doom-vibrant)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
