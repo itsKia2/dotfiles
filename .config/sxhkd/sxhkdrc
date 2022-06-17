@@ -4,7 +4,7 @@
 
 # terminal emulator
 super + Return
-	alacritty
+	kitty
 
 #take screenshot
 
@@ -38,10 +38,10 @@ XF86AudioMicMute
 	pactl set-source-mute @DEFAULT_SINK@ toggle
 
 XF86MonBrightnessUp
-	xbacklight -inc 2
+	light -A 1
 
 XF86MonBrightnessDown
-	xbacklight -dec 2
+	light -U 1
 
 XF86AudioPlay
 	playerctl play-pause
