@@ -16,16 +16,8 @@
 (setq c-basic-offset 4)
 
 (custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
  '(company-backends '(company-capf)))
 (custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
  )
 
 ;;org-mode config
@@ -34,9 +26,7 @@
 ;;(require 'org-superstar)
 ;;(add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
 
-;; for company-lsp and lsp
-;;(require 'company-lsp)
-;;(push 'company-lsp company-backends)
+;; lsp settings
 (setq lsp-signature-render-documentation nil)
 (setq lsp-completion-show-detail t)
 (setq lsp-enable-on-type-formatting t)
@@ -49,7 +39,7 @@
   (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode))
 
 ;;vterm keybinds
-;;(global-set-key (kbd "M-T") 'vterm)
+(global-set-key (kbd "M-T") 'vterm)
 
 ;;Recreating scratch buffer
 ;; If the *scratch* buffer is killed, recreate it automatically
@@ -76,8 +66,8 @@
 
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets.
-;;(setq user-full-name "Omer Karimi"
-      ;;user-mail-address "omerkarimi29@gmail.com")
+(setq user-full-name "Omer Karimi"
+      user-mail-address "omerkarimi29@gmail.com")
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
 ;; are the three important ones:
