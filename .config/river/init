@@ -13,7 +13,7 @@
 #autostarts
 riverctl spawn waybar
 riverctl spawn dunst
-riverctl spawn "swaybg -m fill -i ~/Pictures/wallpaper/bluetrees.jpg"
+riverctl spawn "swaybg -m fill -i ~/Pictures/wallpaper/arch1.png"
 riverctl spawn 'sh /home/kia/.scripts/polkit.sh'
 riverctl spawn 'rofi -show drun' 
 riverctl spawn 'blueman-applet'
