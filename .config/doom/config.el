@@ -15,6 +15,9 @@
 (setq tab-width 4)
 (setq c-basic-offset 4)
 
+(setq lsp-java-format-on-type-enabled nil)
+(setq lsp-enable-on-type-formatting nil)
+
 (custom-set-variables
  '(company-backends '(company-capf)))
 (custom-set-faces
