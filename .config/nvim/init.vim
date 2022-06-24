@@ -32,6 +32,7 @@ Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-buffer'
+Plug 'williamboman/nvim-lsp-installer'
 
 " For vsnip users.
 Plug 'hrsh7th/cmp-vsnip'
@@ -66,6 +67,11 @@ set completeopt=menu,menuone,noselect
 
 lua <<EOF
   require('nvim-autopairs').setup{}
+  require("nvim-lsp-installer").setup {
+    automatic_installation = true
+  }
+  local lspconfig = require('lspconfig')
+
   local cmp = require'cmp'
   local lspconfig = require 'lspconfig'
   local lspkind = require 'lspkind'
@@ -146,7 +152,7 @@ lua <<EOF
   -- Setup lspconfig.
   local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
   -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
-  local servers = { 'clangd', 'pyright' }
+  local servers = { 'clangd', 'pyright', 'html' }
   for _, lsp in ipairs(servers) do
     lspconfig[lsp].setup {
       on_attach = on_attach,
