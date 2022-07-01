@@ -34,6 +34,11 @@ Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'williamboman/nvim-lsp-installer'
 
+" nvim treesitter
+Plug 'nvim-treesitter/nvim-treesitter'
+" indent guides
+Plug 'lukas-reineke/indent-blankline.nvim'
+
 " For vsnip users.
 Plug 'hrsh7th/cmp-vsnip'
 Plug 'hrsh7th/vim-vsnip'
@@ -71,8 +76,9 @@ lua <<EOF
     automatic_installation = true
   }
   local lspconfig = require('lspconfig')
+  local cmp = require('cmp')
 
-  local cmp = require'cmp'
+  -- local cmp = require'cmp'
   local lspconfig = require 'lspconfig'
   local lspkind = require 'lspkind'
   local on_attach = function(_, bufnr)
@@ -127,7 +133,7 @@ lua <<EOF
   -- Set configuration for specific filetype.
   cmp.setup.filetype('gitcommit', {
     sources = cmp.config.sources({
-      { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it. 
+      { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
     }, {
       { name = 'buffer' },
     })
@@ -152,7 +158,7 @@ lua <<EOF
   -- Setup lspconfig.
   local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
   -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
-  local servers = { 'clangd', 'pyright', 'html' }
+  local servers = { 'clangd', 'pyright', 'html', 'jdtls', 'texlab', 'eslint' }
   for _, lsp in ipairs(servers) do
     lspconfig[lsp].setup {
       on_attach = on_attach,
