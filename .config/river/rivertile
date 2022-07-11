@@ -1,0 +1,20 @@
+#!/bin/sh
+
+# Super+H and Super+L to decrease/increase the main ratio of rivertile(1)
+riverctl map normal Super H send-layout-cmd rivertile "main-ratio -0.05"
+riverctl map normal Super L send-layout-cmd rivertile "main-ratio +0.05"
+
+# Super+Shift+H and Super+Shift+L to increment/decrement the main count of rivertile(1)
+riverctl map normal Super+Shift H send-layout-cmd rivertile "main-count +1"
+riverctl map normal Super+Shift L send-layout-cmd rivertile "main-count -1"
+
+# Super+{Up,Right,Down,Left} to change layout orientation
+riverctl map normal Super Up    send-layout-cmd rivertile "main-location top"
+riverctl map normal Super Right send-layout-cmd rivertile "main-location right"
+riverctl map normal Super Down  send-layout-cmd rivertile "main-location bottom"
+riverctl map normal Super Left  send-layout-cmd rivertile "main-location left"
+
+# Set and exec into the default layout generator, rivertile.
+# River will send the process group of the init executable SIGTERM on exit.
+riverctl default-layout rivertile
+exec rivertile -view-padding 6 -outer-padding 6
