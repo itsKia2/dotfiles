@@ -1,0 +1,6 @@
+allow_images=true
+gtk-dark=true
+image_size=20
+width=25%
+hide-scroll=true
+lines=7

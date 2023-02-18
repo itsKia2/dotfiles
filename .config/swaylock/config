@@ -1,0 +1,10 @@
+image=/home/kia/Pictures/wallpaper/space1.png
+timestr=%I:%M %p
+indicator-x-position=150
+indicator-y-position=600
+layout-text-color=#2cdb5b
+text-color=2cdb5b
+indicator-caps-lock
+fade-in=0.2
+indicator-idle-visible
+clock

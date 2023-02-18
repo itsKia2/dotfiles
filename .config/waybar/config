@@ -1,0 +1,130 @@
+{
+
+    "layer": "top",
+    "position": "bottom",
+    "height": 25,
+    "gtk-layer-shell": true,
+
+    // "modules-left": ["river/tags", "river/window",],
+    "modules-left": ["sway/mode", "sway/workspaces", "sway/window"],
+    "modules-center": [],
+    "modules-right": ["pulseaudio", "battery", "backlight", "network", "clock", "tray"],
+
+    "sway/mode": {
+        "format": " {}",
+        "max-length": 50
+    },
+
+    "sway/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "format": "{name}",
+    },
+
+    "sway/window": {
+        "format": "{title}",
+        "max-length": 50,
+    },
+
+    "battery": {
+        "interval": 10,
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        // Connected to AC
+        "format": "  {icon}  {capacity}%", // Icon: bolt
+        // Not connected to AC
+        "format-discharging": "{icon}  {capacity}%",
+        "on-click": "",
+        "format-icons": [
+            "", // Icon: battery-full
+            "", // Icon: battery-three-quarters
+            "", // Icon: battery-half
+            "", // Icon: battery-quarter
+            ""  // Icon: battery-empty
+        ],
+        "tooltip": true
+    },
+
+    "river/window": {
+        "format": "{}",
+        "max-length": 60
+    },
+
+    "clock": {
+        "format": "  {: %b %d (%a) %I:%M %p}",
+        "on-click": "",
+    },
+    
+    "river/tags": {
+        "num-tags": 9
+    },
+
+    "cpu": {
+        "interval": 10,
+        "format": "   {}% ",
+        "max-length": 10,
+   },
+
+   "backlight": {
+        "device": "intel_backlight",
+        "format": "{percent}% {icon}",
+        "format-icons": ["", ""],
+        "on-scroll-up": "light -A 1",
+        "on-scroll-down": "light -U 1",
+        "on-click": "",
+    },
+
+  "memory": {
+       "interval": 30,
+       "format": "  {used:0.1f}G/{total:0.1f}G "
+  },
+  "network": {
+     "interface": "wlp1s0",
+     "format": "{ifname}",
+     "format-wifi": "   {essid}  ",
+     "format-ethernet": "  {ifname} ",
+     "format-disconnected": "", //An empty format will hide the module.
+     "format-disconnected": "",
+     "tooltip-format": "{ifname}",
+     "tooltip-format-wifi": "  {essid} ({signalStrength}%)  ",
+     "tooltip-format-ethernet": " {ifname} ",
+     "tooltip-format-disconnected": "Disconnected",
+     "max-length": 50,
+     "on-click": "",
+},
+    
+    "wlr/taskbar": {
+        "all-outputs": false,
+	    "current-only": false,
+        "format": "{icon}",
+        "icon-size": 12,
+        "icon-theme": "Papirus",
+        "tooltip-format": "{title}",
+        //"on-click": "activate",
+        // "on-click-middle": "close"
+    },
+   
+	"pulseaudio": {
+		"format": "{icon} {volume}%",
+        "format-muted": "Muted",
+        "format-bluetooth": "  {volume}%",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
+    },
+
+    "tray": {
+        "icon-size": 16,
+        "spacing": 5,
+   },
+
+}

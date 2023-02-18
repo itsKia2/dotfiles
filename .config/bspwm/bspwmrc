@@ -1,0 +1,46 @@
+#! /bin/sh
+
+#Autostart
+sh ~/.config/.fehbg
+picom --config ~/.config/picom/picom.conf &
+dunst &
+nm-applet &
+blueman-applet &
+sh ~/.config/polybar/launch.sh &
+rofi -show drun &
+export QT_QPA_PLATFORMTHEME=qt5ct &
+sh ~/.scripts/polkit.sh &
+xautolock -time 10 -locker betterlockscreen &
+kdeconnect-indicator &
+# redshift -l $(curl -s "https://location.services.mozilla.com/v1/geolocate?key=geoclue" | awk 'OFS=":" {print $3,$5}' | tr -d ',}') &
+
+pgrep -x sxhkd > /dev/null || sxhkd &
+
+bspc monitor -d I II III IV V VI VII VIII IX X
+
+# bspc config normal_border_color "#2A2426"
+# bspc config focused_border_color "#87AF87"
+
+bspc config focused_border_color "#468499"
+bspc config normal_border_color "90B5C1"
+
+bspc config border_width         2
+bspc config window_gap           10
+
+bspc config split_ratio          0.52
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+
+bspc rule -a firefox desktop=^1
+bspc rule -a discord desktop=^4
+bspc rule -a zoom desktop=^2
+bspc rule -a mpv state=floating
+bspc rule -a Signal state=floating
+bspc rule -a Emacs state=tiled
+
+bspc rule -a progress state=floating
+bspc rule -a dialog state=floating
+bspc rule -a confirm state=floating
+bspc rule -a error state=floating
+bspc rule -a file_progress state=floating
+bspc rule -a download state=floating
