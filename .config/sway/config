@@ -35,7 +35,7 @@ exec --no-startup-id blueman-applet
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in @datadir@/backgrounds/sway/)
-output * bg /home/kia/Pictures/wallpaper/arch1.png fill
+output * bg /home/kia/Pictures/wallpaper/hacknet.jpg fill
 #
 # Example configuration:
 #
