@@ -180,7 +180,7 @@ bindsym print exec $screenshot
     # Switch the current container between different layout styles
     # bindsym $mod+s layout stacking
     bindsym $mod+t layout tabbed
-    # bindsym $mod+e layout toggle split
+    bindsym $mod+e layout toggle split
 
     # Make the current focus fullscreen
     bindsym $mod+f fullscreen
