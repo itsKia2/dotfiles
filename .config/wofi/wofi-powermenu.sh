@@ -12,5 +12,6 @@ case $selected in
   reboot)
     exec systemctl reboot;;
   shutdown)
-    exec systemctl poweroff -i;;
+    exec systemctl poweroff;;
+    # it used to be poweroff -i
 esac
