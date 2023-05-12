@@ -251,6 +251,7 @@ input type:touchpad {
 ### exceptions
 # floats
 for_window [app_id="org.kde.polkit-kde-authentication-agent-1"] floating enable
+for_window [class="Emacs"] floating enable
 
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 
