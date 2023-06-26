@@ -38,6 +38,10 @@
   (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode))
 
 ;;vterm keybinds
+(use-package vterm
+  :config
+  (setq vterm-timer-delay nil)
+)
 (global-set-key (kbd "M-T") 'vterm)
 
 ;; set calendar beginning of week to monday
@@ -45,6 +49,7 @@
 
 ;; enable tramp mode for ssh
 (setq tramp-default-method "ssh")
+(add-to-list 'tramp-remote-path 'tramp-own-remote-path)
 
 ;;Recreating scratch buffer
 ;; If the *scratch* buffer is killed, recreate it automatically
