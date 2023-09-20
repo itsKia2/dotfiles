@@ -18,6 +18,8 @@
 (setq tab-width 4)
 (setq c-basic-offset 4)
 
+(setq epa-file-cache-passphrase-for-symmetric-encryption nil)
+
 (custom-set-variables
  '(company-backends '(company-capf)))
 (custom-set-faces
@@ -37,11 +39,14 @@
   (global-tree-sitter-mode)
   (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode))
 
+;; Auto-refresh dired on file change
+(add-hook 'dired-mode-hook 'auto-revert-mode)
+
 ;;vterm keybinds
 (use-package vterm
   :config
   (setq vterm-timer-delay nil)
-)
+  )
 (global-set-key (kbd "M-T") 'vterm)
 
 ;; set calendar beginning of week to monday
@@ -75,7 +80,7 @@
 
 ;;org-mode config
 ;;(setq org-ellipsis " ▾"
-      ;;org-hide-emphasis-markers t)
+;;org-hide-emphasis-markers t)
 (require 'org-superstar)
 (add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
 (setq org-agenda-span 30) ;; agenda shows next 30 days
@@ -88,6 +93,9 @@
 ;; clients, file templates and snippets.
 (setq user-full-name "itskia2"
       user-mail-address "itskia2@proton.me")
+
+(setq password-cache-expiry nil)
+(setq password-cache t)
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
 ;; are the three important ones:
@@ -105,7 +113,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-vibrant)
+(setq doom-theme 'doom-feather-dark)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
