@@ -97,6 +97,9 @@
 (setq password-cache-expiry nil)
 (setq password-cache t)
 
+;; disable custom.el
+(setq custom-file "~/.emacs.d/custom-init.el")
+
 ;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
 ;; are the three important ones:
 ;;
@@ -113,7 +116,9 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-feather-dark)
+;; (setq doom-theme 'doom-feather-dark)
+;;(setq doom-theme 'doom-one)
+(setq doom-theme 'doom-moonlight)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
