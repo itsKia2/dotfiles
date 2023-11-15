@@ -6,6 +6,9 @@
 (set-frame-height (selected-frame) 40)
 (set-frame-width (selected-frame) 140)
 
+(setq lsp-use-plists t
+  read-process-output-max (* 1024 1024)) ;; 1mb
+
 ;;Helm keybinds
 (global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "M-x") #'helm-M-x)
