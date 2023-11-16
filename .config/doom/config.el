@@ -6,15 +6,18 @@
 (set-frame-height (selected-frame) 40)
 (set-frame-width (selected-frame) 140)
 
-(setq lsp-use-plists t
-  read-process-output-max (* 1024 1024)) ;; 1mb
-
-;;Helm keybinds
-(global-set-key (kbd "M-x") 'helm-M-x)
-(global-set-key (kbd "M-x") #'helm-M-x)
-(global-set-key (kbd "C-x r b") #'helm-filtered-bookmarks)
-(global-set-key (kbd "C-x C-f") #'helm-find-files)
-(helm-mode 1)
+(use-package vertico
+  :custom
+  (vertico-count 7)
+  (vertico-resize t)
+  (enable-recursive-minibuffers t)
+  :general
+  (:keymaps 'vertico-map
+   "<tab>" #'vertico-insert  ; Insert selected candidate into text area
+   "<escape>" #'minibuffer-keyboard-quit ; Close minibuffer
+   "M-RET" #'minibuffer-force-complete-and-exit
+   :config
+   (vertico-mode)))
 
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
@@ -22,11 +25,6 @@
 (setq c-basic-offset 4)
 
 (setq epa-file-cache-passphrase-for-symmetric-encryption nil)
-
-(custom-set-variables
- '(company-backends '(company-capf)))
-(custom-set-faces
- )
 
 ;; lsp settings
 (setq lsp-java-format-on-type-enabled nil)
@@ -92,13 +90,27 @@
 (setq org-agenda-todo-ignore-scheduled 1)
 
 
+
+;;Helm keybinds
+;;(global-set-key (kbd "M-x") 'helm-M-x)
+;;(global-set-key (kbd "M-x") #'helm-M-x)
+;;(global-set-key (kbd "C-x r b") #'helm-filtered-bookmarks)
+;;(global-set-key (kbd "C-x C-f") #'helm-find-files)
+;;(helm-mode 1)
+
+
+(custom-set-variables
+ '(company-backends '(company-capf)))
+(custom-set-faces
+ )
+
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets.
 (setq user-full-name "itskia2"
       user-mail-address "itskia2@proton.me")
 
 (setq password-cache-expiry nil)
-(setq password-cache t)
+(setq password-cache 1)
 
 ;; disable custom.el
 (setq custom-file "~/.emacs.d/custom-init.el")
