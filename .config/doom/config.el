@@ -6,18 +6,17 @@
 (set-frame-height (selected-frame) 40)
 (set-frame-width (selected-frame) 140)
 
+;; vertico settings
+(setq vertico-resize t)
+(setq enable-recursive-minibuffers t)
 (use-package vertico
-  :custom
-  (vertico-count 7)
-  (vertico-resize t)
-  (enable-recursive-minibuffers t)
   :general
   (:keymaps 'vertico-map
-   "<tab>" #'vertico-insert  ; Insert selected candidate into text area
-   "<escape>" #'minibuffer-keyboard-quit ; Close minibuffer
-   "M-RET" #'minibuffer-force-complete-and-exit
-   :config
-   (vertico-mode)))
+            "M-RET" #'minibuffer-force-complete-and-exit
+            "M-TAB" #'minibuffer-complete
+            "<escape>" #'minibuffer-keyboard-quit
+            "C-M-n" #'vertico-next-group
+            "C-M-p" #'vertico-previous-group))
 
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
@@ -78,6 +77,7 @@
   (add-hook 'kill-buffer-query-functions 'kill-scratch-buffer)
   ;; Since we killed it, don't let caller do that.
   nil)
+
 
 ;;org-mode config
 ;;(setq org-ellipsis " ▾"
