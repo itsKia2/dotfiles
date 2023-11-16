@@ -6,24 +6,10 @@
 (set-frame-height (selected-frame) 40)
 (set-frame-width (selected-frame) 140)
 
-;; vertico settings
-(setq vertico-resize t)
-(setq enable-recursive-minibuffers t)
-(use-package vertico
-  :general
-  (:keymaps 'vertico-map
-            "M-RET" #'minibuffer-force-complete-and-exit
-            "M-TAB" #'minibuffer-complete
-            "<escape>" #'minibuffer-keyboard-quit
-            "C-M-n" #'vertico-next-group
-            "C-M-p" #'vertico-previous-group))
-
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
 (setq tab-width 4)
 (setq c-basic-offset 4)
-
-(setq epa-file-cache-passphrase-for-symmetric-encryption nil)
 
 ;; lsp settings
 (setq lsp-java-format-on-type-enabled nil)
@@ -56,6 +42,21 @@
 (setq tramp-default-method "ssh")
 (add-to-list 'tramp-remote-path 'tramp-own-remote-path)
 
+;; save password
+(setq epa-file-cache-passphrase-for-symmetric-encryption nil)
+
+;; vertico settings
+(setq vertico-resize t)
+(setq enable-recursive-minibuffers t)
+(use-package vertico
+  :general
+  (:keymaps 'vertico-map
+            "M-RET" #'minibuffer-force-complete-and-exit
+            "M-TAB" #'minibuffer-complete
+            "<escape>" #'minibuffer-keyboard-quit
+            "C-M-n" #'vertico-next-group
+            "C-M-p" #'vertico-previous-group))
+
 ;;Recreating scratch buffer
 ;; If the *scratch* buffer is killed, recreate it automatically
 (save-excursion
@@ -78,7 +79,6 @@
   ;; Since we killed it, don't let caller do that.
   nil)
 
-
 ;;org-mode config
 ;;(setq org-ellipsis " ▾"
 ;;org-hide-emphasis-markers t)
@@ -89,15 +89,12 @@
 (setq org-deadline-warning-days 1)
 (setq org-agenda-todo-ignore-scheduled 1)
 
-
-
 ;;Helm keybinds
 ;;(global-set-key (kbd "M-x") 'helm-M-x)
 ;;(global-set-key (kbd "M-x") #'helm-M-x)
 ;;(global-set-key (kbd "C-x r b") #'helm-filtered-bookmarks)
 ;;(global-set-key (kbd "C-x C-f") #'helm-find-files)
 ;;(helm-mode 1)
-
 
 (custom-set-variables
  '(company-backends '(company-capf)))
