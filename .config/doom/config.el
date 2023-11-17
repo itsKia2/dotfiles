@@ -57,6 +57,11 @@
             "C-M-n" #'vertico-next-group
             "C-M-p" #'vertico-previous-group))
 
+;; dired settings
+(lsp-dired-mode t)
+(setq dired-omit-files
+      (concat dired-omit-files ""))
+
 ;;Recreating scratch buffer
 ;; If the *scratch* buffer is killed, recreate it automatically
 (save-excursion
@@ -78,6 +83,11 @@
   (add-hook 'kill-buffer-query-functions 'kill-scratch-buffer)
   ;; Since we killed it, don't let caller do that.
   nil)
+
+;; used to make lsp faster, using plist instead of hashmap
+;; need to include export LSP_USE_PLISTS=true in env var
+(setq lsp-use-plists t
+      read-process-output-max (* 1024 1024)) ;; 1mb
 
 ;;org-mode config
 ;;(setq org-ellipsis " ▾"
