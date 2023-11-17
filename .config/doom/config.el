@@ -59,8 +59,7 @@
 
 ;; dired settings
 (lsp-dired-mode t)
-(setq dired-omit-files
-      (concat dired-omit-files ""))
+(remove-hook! 'dired-mode-hook #'dired-omit-mode)
 
 ;;Recreating scratch buffer
 ;; If the *scratch* buffer is killed, recreate it automatically
