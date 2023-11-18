@@ -3,8 +3,9 @@
 ;; Place your private configuration here! Remember, you do not need to run 'doom
 ;; sync' after modifying this file!
 
-(set-frame-height (selected-frame) 40)
-(set-frame-width (selected-frame) 140)
+;; window custom frame settings
+;;(set-frame-height (selected-frame) 40)
+;;(set-frame-width (selected-frame) 140)
 
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
