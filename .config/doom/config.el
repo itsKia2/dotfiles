@@ -86,8 +86,8 @@
 
 ;; used to make lsp faster, using plist instead of hashmap
 ;; need to include export LSP_USE_PLISTS=true in env var
-(setq lsp-use-plists t
-      read-process-output-max (* 1024 1024)) ;; 1mb
+;;(setq lsp-use-plists t
+;;      read-process-output-max (* 1024 1024)) ;; 1mb
 
 ;;org-mode config
 ;;(setq org-ellipsis " ▾"
