@@ -7,6 +7,9 @@
 ;;(set-frame-height (selected-frame) 40)
 ;;(set-frame-width (selected-frame) 140)
 
+;; automatically open latex pdf next to editor
+(setq +latex-viewers '(pdf-tools))
+
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
 (setq tab-width 4)
