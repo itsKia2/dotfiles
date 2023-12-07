@@ -3,13 +3,6 @@
 ;; Place your private configuration here! Remember, you do not need to run 'doom
 ;; sync' after modifying this file!
 
-;; window custom frame settings
-;;(set-frame-height (selected-frame) 40)
-;;(set-frame-width (selected-frame) 140)
-
-;; automatically open latex pdf next to editor
-(setq +latex-viewers '(pdf-tools))
-
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
 (setq tab-width 4)
@@ -23,6 +16,10 @@
 (setq lsp-enable-on-type-formatting t)
 (use-package lsp-mode)
 
+;; dired settings
+(lsp-dired-mode t)
+(remove-hook! 'dired-mode-hook #'dired-omit-mode)
+
 (use-package! tree-sitter
   :config
   (require 'tree-sitter-langs)
@@ -32,22 +29,9 @@
 ;; Auto-refresh dired on file change
 (add-hook 'dired-mode-hook 'auto-revert-mode)
 
-;;vterm keybinds
-(use-package vterm
-  :config
-  (setq vterm-timer-delay nil)
-  )
-(global-set-key (kbd "M-T") 'vterm)
-
-;; set calendar beginning of week to monday
-(setq calendar-week-start-day 1)
-
 ;; enable tramp mode for ssh
 (setq tramp-default-method "ssh")
 (add-to-list 'tramp-remote-path 'tramp-own-remote-path)
-
-;; save password
-(setq epa-file-cache-passphrase-for-symmetric-encryption nil)
 
 ;; vertico settings
 (setq vertico-resize t)
@@ -61,9 +45,46 @@
             "C-M-n" #'vertico-next-group
             "C-M-p" #'vertico-previous-group))
 
-;; dired settings
-(lsp-dired-mode t)
-(remove-hook! 'dired-mode-hook #'dired-omit-mode)
+
+;; automatically open latex pdf next to editor
+(setq +latex-viewers '(pdf-tools))
+
+;;vterm keybinds
+(use-package vterm
+  :config
+  (setq vterm-timer-delay nil)
+  )
+(global-set-key (kbd "M-T") 'vterm)
+
+;;org-mode config
+;;(setq org-ellipsis " ▾"
+;;org-hide-emphasis-markers t)
+(require 'org-superstar)
+(add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
+(setq org-agenda-span 30) ;; agenda shows next 30 days
+(setq org-agenda-todo-ignore-deadlines 1) ;; ignores global todos with deadlines
+(setq org-deadline-warning-days 1)
+(setq org-agenda-todo-ignore-scheduled 1)
+
+(custom-set-variables
+ '(company-backends '(company-capf) ))
+;; (custom-set-faces )
+
+;; Some functionality uses this to identify you, e.g. GPG configuration, email
+;; clients, file templates and snippets.
+(setq user-full-name "itskia2"
+      user-mail-address "itskia2@proton.me")
+
+;; set calendar beginning of week to monday
+(setq calendar-week-start-day 1)
+
+;; save password
+(setq epa-file-cache-passphrase-for-symmetric-encryption nil)
+(setq password-cache-expiry nil)
+(setq password-cache 1)
+
+;; disable custom.el
+(setq custom-file "~/.emacs.d/custom-init.el")
 
 ;;Recreating scratch buffer
 ;; If the *scratch* buffer is killed, recreate it automatically
@@ -87,21 +108,6 @@
   ;; Since we killed it, don't let caller do that.
   nil)
 
-;; used to make lsp faster, using plist instead of hashmap
-;; need to include export LSP_USE_PLISTS=true in env var
-;;(setq lsp-use-plists t
-;;      read-process-output-max (* 1024 1024)) ;; 1mb
-
-;;org-mode config
-;;(setq org-ellipsis " ▾"
-;;org-hide-emphasis-markers t)
-(require 'org-superstar)
-(add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
-(setq org-agenda-span 30) ;; agenda shows next 30 days
-(setq org-agenda-todo-ignore-deadlines 1) ;; ignores global todos with deadlines
-(setq org-deadline-warning-days 1)
-(setq org-agenda-todo-ignore-scheduled 1)
-
 ;;Helm keybinds
 ;;(global-set-key (kbd "M-x") 'helm-M-x)
 ;;(global-set-key (kbd "M-x") #'helm-M-x)
@@ -109,21 +115,15 @@
 ;;(global-set-key (kbd "C-x C-f") #'helm-find-files)
 ;;(helm-mode 1)
 
-(custom-set-variables
- '(company-backends '(company-capf)))
-(custom-set-faces
- )
+;; used to make lsp faster, using plist instead of hashmap
+;; need to include export LSP_USE_PLISTS=true in env var
+;;(setq lsp-use-plists t
+;;      read-process-output-max (* 1024 1024)) ;; 1mb
 
-;; Some functionality uses this to identify you, e.g. GPG configuration, email
-;; clients, file templates and snippets.
-(setq user-full-name "itskia2"
-      user-mail-address "itskia2@proton.me")
 
-(setq password-cache-expiry nil)
-(setq password-cache 1)
-
-;; disable custom.el
-(setq custom-file "~/.emacs.d/custom-init.el")
+;; window custom frame settings
+;;(set-frame-height (selected-frame) 40)
+;;(set-frame-width (selected-frame) 140)
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
 ;; are the three important ones:
