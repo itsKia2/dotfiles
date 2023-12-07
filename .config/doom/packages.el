@@ -53,3 +53,4 @@
 (package! company-lsp)
 (package! tree-sitter)
 (package! tree-sitter-langs)
+(package! fireplace)

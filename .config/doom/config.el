@@ -31,7 +31,7 @@
 
 ;; enable tramp mode for ssh
 (setq tramp-default-method "ssh")
-(add-to-list 'tramp-remote-path 'tramp-own-remote-path)
+;; (add-to-list 'tramp-remote-path 'tramp-own-remote-path)
 
 ;; vertico settings
 (setq vertico-resize t)
@@ -44,7 +44,6 @@
             "<escape>" #'minibuffer-keyboard-quit
             "C-M-n" #'vertico-next-group
             "C-M-p" #'vertico-previous-group))
-
 
 ;; automatically open latex pdf next to editor
 (setq +latex-viewers '(pdf-tools))
@@ -68,7 +67,6 @@
 
 (custom-set-variables
  '(company-backends '(company-capf) ))
-;; (custom-set-faces )
 
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets.
@@ -107,6 +105,9 @@
   (add-hook 'kill-buffer-query-functions 'kill-scratch-buffer)
   ;; Since we killed it, don't let caller do that.
   nil)
+
+;; fun stuff
+(require 'fireplace)
 
 ;;Helm keybinds
 ;;(global-set-key (kbd "M-x") 'helm-M-x)
