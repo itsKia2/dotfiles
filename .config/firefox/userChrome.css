@@ -5,7 +5,7 @@ Author: dpcdpc11.gumroad.com
 ENJOY!
 */
 
-/* put in ~/.mozilla/firefox/PROFILE-NAME/chome/userChrome.css */
+/* ln -s ~/.config/firefox/userChrome.css ~/.mozilla/firefox/PROFILE_NAME/chrome/userChrome.css */
 
 #navigator-toolbox {
 	border: 0 !important;
