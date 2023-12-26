@@ -36,6 +36,15 @@ return {
   },
   -- disable flit
   { "ggandor/flit.nvim",           enabled = false },
+  -- disable nvim-notify
+  {
+    "rcarriga/nvim-notify",
+    opts = {
+      level = 3,
+      render = "minimal",
+      stages = "static",
+    },
+  },
   -- reconfigure leap
   {
     "ggandor/leap.nvim",
@@ -133,6 +142,7 @@ return {
   },
   {
     "goolord/alpha-nvim",
+    enabled = false,
     opts = function(_, dashboard)
       local logo = [[
 ░▀▄▀░▄▀▄░█▒█  ▒▄▀▄▒█▀▄▒██▀  ░█▄█▒██▀▒█▀▄▒██▀
