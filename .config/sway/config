@@ -13,7 +13,7 @@ set $left h
 set $down j
 set $up k
 set $right l
-set $powermenu sh /home/kia/.config/wofi/wofi-powermenu.sh
+set $powermenu sh /home/kia/.config/rofi/powermenu/powermenu.sh
 # Your preferred terminal emulator
 set $term kitty
 # Your preferred application launcher

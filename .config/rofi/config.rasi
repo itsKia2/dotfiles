@@ -31,8 +31,8 @@ configuration {
 window {
   border:           0px;
   border-radius:    5px;
-  padding:          25px;
-  width:            26%;
+  padding:          17px;
+  width:            23%;
   background-color: #000000aa;
 }
 scrollbar {
@@ -71,7 +71,7 @@ inputbar {
 }
 
 listview {
-  lines:        7;
+  lines:        5;
   columns:      1;
   fixed-height: 0;
   border:       0px;
