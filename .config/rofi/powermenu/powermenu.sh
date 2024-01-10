@@ -2,12 +2,11 @@
 
 
 dir="$HOME/.config/rofi/powermenu"
-configdir="$HOME/.config/rofi/launchers/type-7"
 
 uptime=$(uptime -p | sed -e 's/up //g')
 
 # rofi_command="rofi -theme $dir/powermenu.rasi"
-rofi_command="rofi -theme $configdir/style-7.rasi"
+rofi_command="rofi"
 
 # Options
 shutdown="Shutdown"
@@ -22,7 +21,7 @@ confirm_exit() {
 		-i\
 		-no-fixed-num-lines\
 		-p "Are You Sure? : "\
-		# -theme $configdir/style-7.rasi
+		# -theme $dir/confirm.rasi
 }
 
 # Message
