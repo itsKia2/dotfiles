@@ -35,8 +35,6 @@ exec --no-startup-id blueman-applet
 exec --no-startup-id /usr/lib/pam_kwallet_init
 # exec --no-startup-id sh /home/kia/.scripts/startkdeconnect.sh
 
-# add comment
-
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in @datadir@/backgrounds/sway/)
