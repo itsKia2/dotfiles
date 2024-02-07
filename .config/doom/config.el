@@ -123,8 +123,10 @@
 
 
 ;; window custom frame settings
-;;(set-frame-height (selected-frame) 40)
-;;(set-frame-width (selected-frame) 140)
+(add-to-list 'default-frame-alist '(height . 40))
+(add-to-list 'default-frame-alist '(width . 140))
+(set-frame-height (selected-frame) 40)
+(set-frame-width (selected-frame) 140)
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
 ;; are the three important ones:
