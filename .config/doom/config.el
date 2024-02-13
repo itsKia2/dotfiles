@@ -123,10 +123,10 @@
 
 
 ;; window custom frame settings
-(add-to-list 'default-frame-alist '(height . 40))
-(add-to-list 'default-frame-alist '(width . 140))
-(set-frame-height (selected-frame) 40)
-(set-frame-width (selected-frame) 140)
+;;(add-to-list 'default-frame-alist '(height . 40))
+;;(add-to-list 'default-frame-alist '(width . 140))
+;;(set-frame-height (selected-frame) 40)
+;;(set-frame-width (selected-frame) 140)
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
 ;; are the three important ones:
@@ -146,7 +146,7 @@
 ;; `load-theme' function. This is the default:
 ;; (setq doom-theme 'doom-feather-dark)
 ;;(setq doom-theme 'doom-one)
-(setq doom-theme 'doom-moonlight)
+(setq doom-theme 'doom-challenger-deep)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
