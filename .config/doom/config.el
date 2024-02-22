@@ -16,6 +16,10 @@
 (setq lsp-enable-on-type-formatting t)
 (use-package lsp-mode)
 
+;; setting font - TEMP UNTIL KDE PLASMA 6 COMES OUT
+(add-to-list 'default-frame-alist
+             '(font . "IBM Plex Mono SmBld-10"))
+
 ;; dired settings
 (lsp-dired-mode t)
 (remove-hook! 'dired-mode-hook #'dired-omit-mode)
