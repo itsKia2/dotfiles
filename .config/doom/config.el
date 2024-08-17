@@ -10,8 +10,6 @@
 
 ;; lsp settings
 (setq lsp-java-format-on-type-enabled nil)
-(setq lsp-enable-on-type-formatting nil)
-(setq lsp-signature-render-documentation nil)
 (setq lsp-completion-show-detail t)
 (setq lsp-enable-on-type-formatting t)
 (use-package lsp-mode)
