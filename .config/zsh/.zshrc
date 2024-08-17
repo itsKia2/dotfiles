@@ -81,7 +81,13 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
+# RUST PATH
 export PATH="/home/kia/.cargo/bin:$PATH"
+
+# android sdk path
+export ANDROID_HOME=$HOME/Android/Sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 #export path
 export PATH=/home/kia/.local/bin:$PATH
