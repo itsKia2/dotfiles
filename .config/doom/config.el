@@ -3,18 +3,16 @@
 ;; Place your private configuration here! Remember, you do not need to run 'doom
 ;; sync' after modifying this file!
 
-(setq-default indent-tabs-mode nil)
-(setq-default tab-width 4)
-(setq tab-width 4)
-(setq c-basic-offset 4)
+;; performance settings
+(setq read-process-output-max (* 1024 1024)) ;; 1mb
+(setq gc-cons-threshold 100000000)
 
 ;; lsp settings
 (setq lsp-java-format-on-type-enabled nil)
-(setq lsp-completion-show-detail t)
-(setq lsp-enable-on-type-formatting t)
+(setq lsp-completion-show-detail nil)
+(setq lsp-enable-on-type-formatting nil)
 (use-package lsp-mode)
 
-;; setting font - TEMP UNTIL KDE PLASMA 6 COMES OUT
 (add-to-list 'default-frame-alist
              '(font . "IBM Plex Mono SmBld-10"))
 
@@ -22,11 +20,18 @@
 (lsp-dired-mode t)
 (remove-hook! 'dired-mode-hook #'dired-omit-mode)
 
+;; treesitter settings
 (use-package! tree-sitter
   :config
   (require 'tree-sitter-langs)
   (global-tree-sitter-mode)
   (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode))
+
+;; tabs settings
+(setq-default indent-tabs-mode nil)
+(setq-default tab-width 4)
+(setq tab-width 4)
+(setq c-basic-offset 4)
 
 ;; Auto-refresh dired on file change
 (add-hook 'dired-mode-hook 'auto-revert-mode)
@@ -57,15 +62,12 @@
   )
 (global-set-key (kbd "M-T") 'vterm)
 
-;;org-mode config
-;;(setq org-ellipsis " ▾"
-;;org-hide-emphasis-markers t)
-(require 'org-superstar)
-(add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
-(setq org-agenda-span 30) ;; agenda shows next 30 days
-(setq org-agenda-todo-ignore-deadlines 1) ;; ignores global todos with deadlines
-(setq org-deadline-warning-days 1)
-(setq org-agenda-todo-ignore-scheduled 1)
+;;(require 'org-superstar)
+;;(add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
+;;(setq org-agenda-span 30) ;; agenda shows next 30 days
+;;(setq org-agenda-todo-ignore-deadlines 1) ;; ignores global todos with deadlines
+;;(setq org-deadline-warning-days 1)
+;;(setq org-agenda-todo-ignore-scheduled 1)
 
 (custom-set-variables
  '(company-backends '(company-capf) ))

@@ -49,7 +49,6 @@
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
                                         ;(unpin! t)
 
-(package! org-superstar)
 (package! company-lsp)
 (package! tree-sitter)
 (package! tree-sitter-langs)
