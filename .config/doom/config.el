@@ -9,8 +9,14 @@
 
 ;; lsp settings
 (setq lsp-java-format-on-type-enabled nil)
-(setq lsp-completion-show-detail nil)
-(setq lsp-enable-on-type-formatting nil)
+(setq lsp-completion-show-detail t)
+(setq lsp-enable-on-type-formatting t)
+
+(setq lsp-ui-doc-enable nil)
+(setq lsp-modeline-diagnostics-enable t)
+(setq lsp-signature-render-documentation t)
+(setq lsp-completion-show-kind t)
+
 (use-package lsp-mode)
 
 (add-to-list 'default-frame-alist
