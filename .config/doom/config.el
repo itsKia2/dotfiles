@@ -12,7 +12,9 @@
 (setq lsp-completion-show-detail t)
 (setq lsp-enable-on-type-formatting t)
 
+(setq lsp-ui-peek-enable nil)
 (setq lsp-ui-doc-enable nil)
+(setq lsp-ui-doc-show-with-cursor t)
 (setq lsp-modeline-diagnostics-enable t)
 (setq lsp-signature-render-documentation t)
 (setq lsp-completion-show-kind t)
