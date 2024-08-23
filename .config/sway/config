@@ -1,8 +1,6 @@
-# Default config for sway
-#
-# Copy this to ~/.config/sway/config and edit it to your liking.
-#
-# Read `man 5 sway` for a complete reference.
+# PACKAGES REQUIRED FOR SWAY TO RUN
+# sway wofi waybar dunst swaybg swaylock swayidle
+# xdg-desktop-portal-wlr network-manager-applet blueman light
 
 ### Variables
 #
