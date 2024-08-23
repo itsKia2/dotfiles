@@ -2,7 +2,7 @@
 
     "layer": "top",
     "position": "bottom",
-    "height": 25,
+    "height": 27,
     "gtk-layer-shell": true,
 
     // "modules-left": ["river/tags", "river/window",],

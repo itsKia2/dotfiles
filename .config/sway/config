@@ -40,6 +40,7 @@ exec --no-startup-id /usr/lib/pam_kwallet_init
 # Default wallpaper (more resolutions are available in @datadir@/backgrounds/sway/)
 # output * bg /home/kia/Pictures/wallpaper/moonstars.png fill
 output * bg /home/kia/Pictures/wallpaper/stardew.jpg fill
+output eDP-1 scale 1.5
 #
 # Example configuration:
 #
@@ -106,7 +107,7 @@ exec swayidle -w \
     # bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
     bindsym $mod+Shift+x exec $powermenu
 
-    bindsym $mod+KP_Add exec swaylock
+    bindsym $mod+y exec swaylock
 
 ### more keybinds
 # audio
