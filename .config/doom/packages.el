@@ -49,7 +49,8 @@
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
                                         ;(unpin! t)
 
-(package! company-lsp)
+;;(package! company-lsp)
+(package! nerd-icons-corfu)
 (package! tree-sitter)
 (package! tree-sitter-langs)
 (package! fireplace)
