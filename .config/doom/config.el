@@ -3,6 +3,24 @@
 ;; Place your private configuration here! Remember, you do not need to run 'doom
 ;; sync' after modifying this file!
 
+;; corfu config
+(use-package corfu
+  ;; TAB-and-Go customizations
+  :custom
+  (corfu-cycle t)           ;; Enable cycling for `corfu-next/previous'
+  (corfu-preselect 'prompt) ;; Always preselect the prompt
+
+  ;; Use TAB for cycling, default is `corfu-complete'.
+  :bind
+  (:map corfu-map
+        ("TAB" . corfu-next)
+        ([tab] . corfu-next)
+        ("S-TAB" . corfu-previous)
+        ([backtab] . corfu-previous))
+
+  :init
+  (global-corfu-mode))
+
 ;; corfu - nerd icon config
 (use-package nerd-icons-corfu
   :ensure t
@@ -20,7 +38,7 @@
 (setq lsp-enable-on-type-formatting t)
 
 (setq lsp-ui-peek-enable nil)
-(setq lsp-ui-doc-enable nil)
+(setq lsp-ui-doc-enable t)
 (setq lsp-ui-doc-show-with-cursor t)
 (setq lsp-modeline-diagnostics-enable t)
 (setq lsp-signature-render-documentation t)
