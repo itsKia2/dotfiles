@@ -71,6 +71,7 @@
 
 ;; enable tramp mode for ssh
 (setq tramp-default-method "ssh")
+(setq tramp-verbose 1)
 ;; (add-to-list 'tramp-remote-path 'tramp-own-remote-path)
 
 ;; vertico settings
