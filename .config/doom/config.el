@@ -74,9 +74,12 @@
 (add-hook 'dired-mode-hook 'auto-revert-mode)
 
 ;; enable tramp mode for ssh
+(setq tramp-inline-compress-start-size 1000)
+(setq tramp-copy-size-limit 10000)
 (setq tramp-default-method "ssh")
 (setq tramp-verbose 1)
-;; (add-to-list 'tramp-remote-path 'tramp-own-remote-path)
+(setq projectile--mode-line "Projectile")
+(setq tramp-verbose 1)
 
 ;; vertico settings
 (setq vertico-resize t)
