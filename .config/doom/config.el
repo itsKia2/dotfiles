@@ -55,10 +55,14 @@
 
 ;; treesitter settings
 (use-package! tree-sitter
+  :hook (prog-mode . turn-on-tree-sitter-mode)
+  :hook (tree-sitter-after-on . tree-sitter-hl-mode)
   :config
   (require 'tree-sitter-langs)
-  (global-tree-sitter-mode)
-  (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode))
+  (setq tree-sitter-debug-jump-buttons t
+        tree-sitter-debug-highlight-jump-region t))
+;;(global-tree-sitter-mode)
+;; (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)
 
 ;; tabs settings
 (setq-default indent-tabs-mode nil)
