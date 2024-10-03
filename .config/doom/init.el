@@ -74,7 +74,7 @@
        ;;vc                ; version-control and Emacs, sitting in a tree
 
        :term
-       eshell            ; the elisp shell that works everywhere
+       eshell              ; the elisp shell that works everywhere
        ;;shell             ; simple shell REPL for Emacs
        ;;term              ; basic terminal emulator for Emacs
        vterm               ; the best terminal emulation in Emacs
@@ -85,7 +85,7 @@
        ;;grammar           ; tasing grammar mistake every you make
 
        :tools
-       tree-sitter
+       tree-sitter         ; added this myself to include tree-sitter support
        ;;ansible
        debugger            ; FIXME stepping through code, to help you add bugs
        ;;direnv
