@@ -45,7 +45,9 @@
   :config
   (require 'tree-sitter-langs)
   (setq tree-sitter-debug-jump-buttons t
-	tree-sitter-debug-highlight-jump-region t))
+	tree-sitter-debug-highlight-jump-region t)
+  (setq treesit-font-lock-level 4))
+
 
 ;; enable tramp mode for ssh
 (setq tramp-inline-compress-start-size 1000)
@@ -116,9 +118,6 @@
 
 ;; custom file
 (setq custom-file "~/.config/doom/custom.el")
-
-(custom-set-variables
- '(company-backends '(company-capf) ))
 
 ;;vterm keybinds
 (use-package vterm
