@@ -102,6 +102,10 @@
   :init
   (global-corfu-mode))
 
+;; org mode settings
+(setq org-hide-emphasis-markers t)
+(setq org-src-fontify-natively t)
+
 ;; corfu - nerd icon config
 (use-package nerd-icons-corfu
   :ensure t
@@ -136,7 +140,7 @@
 ;; If the *scratch* buffer is killed, recreate it automatically
 (with-current-buffer
     (set-buffer (get-buffer-create "*scratch*"))
-  (lisp-interaction-mode)
+  (org-mode)
   (make-local-variable 'kill-buffer-query-functions)
   (add-hook 'kill-buffer-query-functions 'kill-scratch-buffer))
 
@@ -148,7 +152,7 @@
   (kill-buffer (current-buffer))
   ;; Make a brand new *scratch* buffer
   (set-buffer (get-buffer-create "*scratch*"))
-  (lisp-interaction-mode)
+  (org-mode)
   (make-local-variable 'kill-buffer-query-functions)
   (add-hook 'kill-buffer-query-functions 'kill-scratch-buffer)
   ;; Since we killed it, don't let caller do that.
