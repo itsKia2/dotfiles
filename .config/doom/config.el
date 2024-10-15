@@ -34,6 +34,7 @@
 
 ;; tabs settings
 (setq-default indent-tabs-mode t)
+(setq whitespace-mode nil)
 (setq-default tab-width 4)
 (setq tab-width 4)
 (setq c-basic-offset 4)
@@ -90,6 +91,7 @@
   :custom
   (corfu-cycle t)           ;; Enable cycling for `corfu-next/previous'
   (corfu-preselect 'prompt) ;; Always preselect the prompt
+  (corfu-echo-mode t)       ;; Shows documentation next to corfu popup
 
   ;; Use TAB for cycling, default is `corfu-complete'.
   :bind
