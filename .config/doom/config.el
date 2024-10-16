@@ -16,7 +16,7 @@
 (setq doom-theme 'doom-challenger-deep)
 (setq display-line-numbers-type t)
 (add-to-list 'default-frame-alist
-	     '(font . "IBM Plex Mono SmBld-10"))
+	     '(font . "IBM Plex Mono SmBld-11"))
 
 ;; lsp settings
 (setq lsp-java-format-on-type-enabled nil)
@@ -56,7 +56,6 @@
 (setq tramp-default-method "ssh")
 (setq tramp-verbose 1)
 (setq projectile--mode-line "Projectile")
-(setq tramp-verbose 1)
 
 ;; dired settings
 ;; Auto-refresh dired on file change
