@@ -34,10 +34,13 @@
 
 ;; tabs settings
 (setq-default indent-tabs-mode t)
-(setq whitespace-mode nil)
 (setq-default tab-width 4)
 (setq tab-width 4)
-(setq c-basic-offset 4)
+
+;; disable ugly indentation highlighting
+(setq global-whitespace-mode nil)
+(setq whitespace-global-modes nil)
+(advice-add #'doom-highlight-non-default-indentation-h :override #'ignore)
 
 ;; treesitter settings
 (use-package! tree-sitter
@@ -46,16 +49,21 @@
   :config
   (require 'tree-sitter-langs)
   (setq tree-sitter-debug-jump-buttons t
-	tree-sitter-debug-highlight-jump-region t)
+        tree-sitter-debug-highlight-jump-region t)
   (setq treesit-font-lock-level 4))
-
 
 ;; enable tramp mode for ssh
 (setq tramp-inline-compress-start-size 1000)
 (setq tramp-copy-size-limit 10000)
 (setq tramp-default-method "ssh")
 (setq tramp-verbose 1)
+(setq tramp-chunksize 3000)
 (setq projectile--mode-line "Projectile")
+
+;; autosave (disabled with tramp)
+(setq auto-save-default nil)
+(add-to-list 'backup-directory-alist ; deactivate auto-save with TRAMP
+	     (cons tramp-file-name-regexp nil))
 
 ;; dired settings
 ;; Auto-refresh dired on file change
