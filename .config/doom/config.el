@@ -27,7 +27,7 @@
 (setq lsp-ui-doc-enable t)
 (setq lsp-ui-doc-show-with-cursor t)
 (setq lsp-modeline-diagnostics-enable t)
-(setq lsp-signature-render-documentation t)
+(setq lsp-signature-render-documentation nil)
 (setq lsp-completion-show-kind t)
 
 (use-package lsp-mode)
