@@ -61,7 +61,7 @@
 (setq projectile--mode-line "Projectile")
 
 ;; autosave (disabled with tramp)
-(setq auto-save-default nil)
+(setq auto-save-mode nil)
 (add-to-list 'backup-directory-alist ; deactivate auto-save with TRAMP
 	     (cons tramp-file-name-regexp nil))
 
