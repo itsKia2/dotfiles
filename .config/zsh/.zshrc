@@ -126,3 +126,4 @@ alias swayconfig="nvim ~/.config/sway/config"
 alias vim="nvim"
 alias dotconfig='/usr/bin/git --git-dir=$HOME/.config/dotfiles/ --work-tree=$HOME'
 alias reinstallGrub='sudo grub-mkconfig -o /boot/grub/grub.cfg;sudo grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB'
+alias quickfix="sudo cat /sys/kernel/debug/dri/1/amdgpu_gpu_recover"
