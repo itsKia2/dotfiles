@@ -13,10 +13,12 @@
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 
 ;; doom theme - line numbers - font
-(setq doom-theme 'doom-challenger-deep)
+(setq doom-theme 'doom-moonlight)
 (setq display-line-numbers-type t)
-(add-to-list 'default-frame-alist
-	     '(font . "IBM Plex Mono SmBld-11"))
+(pixel-scroll-mode 1)
+(pixel-scroll-precision-mode 1)
+(set-face-attribute 'default nil :family "IBM Plex Mono" :height 110 :weight 'bold)
+(set-face-attribute 'variable-pitch nil :font "JetBrainsMono Nerd Font Mono-11" :weight 'light)
 
 ;; lsp settings
 (setq lsp-java-format-on-type-enabled nil)
@@ -43,7 +45,7 @@
 (advice-add #'doom-highlight-non-default-indentation-h :override #'ignore)
 
 ;; treesitter settings
-(use-package! tree-sitter
+(use-package tree-sitter
   :hook (prog-mode . turn-on-tree-sitter-mode)
   :hook (tree-sitter-after-on . tree-sitter-hl-mode)
   :config
@@ -54,16 +56,16 @@
 
 ;; enable tramp mode for ssh
 (setq tramp-inline-compress-start-size 1000)
+(setq remote-file-name-inhibit-cache nil)
+(setq tramp-chunksize 3000)
 (setq tramp-copy-size-limit 10000)
 (setq tramp-default-method "ssh")
+(setq projectile-mode-line "Projectile")
 (setq tramp-verbose 1)
-(setq tramp-chunksize 3000)
-(setq projectile--mode-line "Projectile")
 
 ;; autosave (disabled with tramp)
-(setq auto-save-mode nil)
-(add-to-list 'backup-directory-alist ; deactivate auto-save with TRAMP
-	     (cons tramp-file-name-regexp nil))
+;; (setq auto-save-mode nil)
+(setq auto-save-visited-mode t)
 
 ;; dired settings
 ;; Auto-refresh dired on file change
@@ -99,6 +101,7 @@
   (corfu-cycle t)           ;; Enable cycling for `corfu-next/previous'
   (corfu-preselect 'prompt) ;; Always preselect the prompt
   (corfu-echo-mode t)       ;; Shows documentation next to corfu popup
+  (corfu-auto-delay 0.3)
 
   ;; Use TAB for cycling, default is `corfu-complete'.
   :bind
@@ -109,7 +112,8 @@
 	([backtab] . corfu-previous))
 
   :init
-  (global-corfu-mode))
+  (global-corfu-mode)
+  (corfu-history-mode))
 
 ;; org mode settings
 (setq org-hide-emphasis-markers t)
@@ -123,8 +127,9 @@
   (add-to-list 'corfu-margin-formatters #'nerd-icons-corfu-formatter))
 
 ;; performance settings
+(setq gc-cons-threshold-original gc-cons-threshold)
+(setq gc-cons-threshold (* 1024 1024 100))
 (setq read-process-output-max (* 1024 1024)) ;; 1mb
-(setq gc-cons-threshold 100000000)
 
 ;; automatically open latex pdf next to editor
 (setq +latex-viewers '(pdf-tools))
