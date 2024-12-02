@@ -14,9 +14,7 @@
 
 ;; doom theme - line numbers - font
 (setq doom-theme 'doom-moonlight)
-(setq display-line-numbers-type t)
-(pixel-scroll-mode 1)
-(pixel-scroll-precision-mode 1)
+(setq display-line-numbers-mode t)
 (set-face-attribute 'default nil :family "IBM Plex Mono" :height 110 :weight 'bold)
 (set-face-attribute 'variable-pitch nil :font "JetBrainsMono Nerd Font Mono-11" :weight 'light)
 
@@ -42,7 +40,12 @@
 ;; disable ugly indentation highlighting
 (setq global-whitespace-mode nil)
 (setq whitespace-global-modes nil)
-(advice-add #'doom-highlight-non-default-indentation-h :override #'ignore)
+
+;; scrolling settings (supposedly makes it faster)
+(pixel-scroll-precision-mode 1)
+(pixel-scroll-mode nil)
+(setq scroll-step 1)
+(setq scroll-conservatively 10000)
 
 ;; treesitter settings
 (use-package tree-sitter
@@ -61,7 +64,7 @@
 (setq tramp-copy-size-limit 10000)
 (setq tramp-default-method "ssh")
 (setq projectile-mode-line "Projectile")
-(setq tramp-verbose 1)
+(setq tramp-verbose 0)
 
 ;; autosave (disabled with tramp)
 ;; (setq auto-save-mode nil)
@@ -129,7 +132,7 @@
 ;; performance settings
 (setq gc-cons-threshold-original gc-cons-threshold)
 (setq gc-cons-threshold (* 1024 1024 100))
-(setq read-process-output-max (* 1024 1024)) ;; 1mb
+(setq read-process-output-max (* 64 1024 1024))
 
 ;; automatically open latex pdf next to editor
 (setq +latex-viewers '(pdf-tools))
