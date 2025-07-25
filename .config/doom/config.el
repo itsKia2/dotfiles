@@ -12,6 +12,9 @@
 ;; start in max window
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 
+;; blink cursor
+(blink-cursor-mode 1)
+
 ;; doom theme - line numbers - font
 (setq doom-theme 'doom-moonlight)
 (setq display-line-numbers-mode t)
@@ -42,6 +45,9 @@
 (setq global-whitespace-mode nil)
 (setq whitespace-global-modes nil)
 
+;; Version control optimization
+(setq vc-handled-backends '(Git))
+
 ;; scrolling settings (supposedly makes it faster)
 (pixel-scroll-precision-mode 1)
 (pixel-scroll-mode nil)
@@ -54,8 +60,6 @@
   :hook (tree-sitter-after-on . tree-sitter-hl-mode)
   :config
   (require 'tree-sitter-langs)
-  (setq tree-sitter-debug-jump-buttons t
-        tree-sitter-debug-highlight-jump-region t)
   (setq treesit-font-lock-level 4))
 
 ;; enable tramp mode for ssh
@@ -68,8 +72,7 @@
 (setq tramp-verbose 0)
 
 ;; autosave (disabled with tramp)
-;; (setq auto-save-mode nil)
-(setq auto-save-visited-mode t)
+(setq auto-save-default t)
 
 ;; dired settings
 ;; Auto-refresh dired on file change
