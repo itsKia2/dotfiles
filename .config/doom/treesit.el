@@ -1,25 +1,25 @@
-(setq major-mode-remap-alist
-      '((c-mode          . c-ts-mode)
-        (c++-mode        . c++-ts-mode)
-        (python-mode     . python-ts-mode)
-        (bash-mode       . bash-ts-mode)
-        (js-mode         . js-ts-mode)
-        (typescript-mode . typescript-ts-mode)
-        (json-mode       . json-ts-mode)
-        (css-mode        . css-ts-mode)
-        (html-mode       . html-ts-mode)
-        (yaml-mode       . yaml-ts-mode)
-        (go-mode         . go-ts-mode)
-        (rust-mode       . rust-ts-mode)
-        (java-mode       . java-ts-mode)
-        (ruby-mode       . ruby-ts-mode)
-        (toml-mode       . toml-ts-mode)
-        (php-mode        . php-ts-mode)
-        (lua-mode        . lua-ts-mode)
-        (cmake-mode      . cmake-ts-mode)
-        (makefile-mode   . makefile-ts-mode)
-        (dockerfile-mode . dockerfile-ts-mode)
-        (tsx-mode        . tsx-ts-mode)))
+(dolist (mapping '((c-mode          . c-ts-mode)
+                   (c++-mode        . c++-ts-mode)
+                   (python-mode     . python-ts-mode)
+                   (bash-mode       . bash-ts-mode)
+                   (js-mode         . js-ts-mode)
+                   (typescript-mode . typescript-ts-mode)
+                   (json-mode       . json-ts-mode)
+                   (css-mode        . css-ts-mode)
+                   (html-mode       . html-ts-mode)
+                   (yaml-mode       . yaml-ts-mode)
+                   (go-mode         . go-ts-mode)
+                   (rust-mode       . rust-ts-mode)
+                   (java-mode       . java-ts-mode)
+                   (ruby-mode       . ruby-ts-mode)
+                   (toml-mode       . toml-ts-mode)
+                   (php-mode        . php-ts-mode)
+                   (lua-mode        . lua-ts-mode)
+                   (cmake-mode      . cmake-ts-mode)
+                   (makefile-mode   . makefile-ts-mode)
+                   (dockerfile-mode . dockerfile-ts-mode)
+                   (tsx-mode        . tsx-ts-mode)))
+  (add-to-list 'major-mode-remap-alist mapping))
 
 (after! lsp-mode
   ;; Map ts-modes to language IDs
@@ -46,7 +46,6 @@
                      (tsx-ts-mode        . "typescriptreact")))
     (add-to-list 'lsp-language-id-configuration mapping))
 
-  ;; Enable lsp-mode for the ts-modes explicitly
   (dolist (mode '(c-ts-mode
                   c++-ts-mode
                   python-ts-mode
