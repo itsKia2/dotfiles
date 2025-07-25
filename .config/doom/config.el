@@ -22,20 +22,6 @@
 (set-face-attribute 'default nil :family "IBM Plex Mono" :height 110 :weight 'bold)
 (set-face-attribute 'variable-pitch nil :font "JetBrainsMono Nerd Font Mono-11" :weight 'light)
 
-;; lsp settings
-(setq lsp-java-format-on-type-enabled nil)
-(setq lsp-completion-show-detail t)
-(setq lsp-enable-on-type-formatting t)
-
-(setq lsp-ui-peek-enable nil)
-(setq lsp-ui-doc-enable t)
-(setq lsp-ui-doc-show-with-cursor t)
-(setq lsp-modeline-diagnostics-enable t)
-(setq lsp-signature-render-documentation nil)
-(setq lsp-completion-show-kind t)
-
-(use-package lsp-mode)
-
 ;; tabs settings
 (setq-default indent-tabs-mode t)
 (setq-default tab-width 4)
@@ -55,12 +41,31 @@
 (setq scroll-conservatively 10000)
 
 ;; treesitter settings
-(use-package tree-sitter
-  :hook (prog-mode . turn-on-tree-sitter-mode)
-  :hook (tree-sitter-after-on . tree-sitter-hl-mode)
+(use-package treesit
   :config
-  (require 'tree-sitter-langs)
   (setq treesit-font-lock-level 4))
+
+(use-package! treesit-auto
+  :init
+  (setq treesit-auto-install t)
+  :config
+  (global-treesit-auto-mode -1))
+
+(load! "treesit")
+
+;; lsp settings
+(setq lsp-java-format-on-type-enabled nil)
+(setq lsp-completion-show-detail t)
+(setq lsp-enable-on-type-formatting t)
+
+(setq lsp-ui-peek-enable nil)
+(setq lsp-ui-doc-enable t)
+(setq lsp-ui-doc-show-with-cursor t)
+(setq lsp-modeline-diagnostics-enable t)
+(setq lsp-signature-render-documentation nil)
+(setq lsp-completion-show-kind t)
+
+(use-package lsp-mode)
 
 ;; enable tramp mode for ssh
 (setq tramp-inline-compress-start-size 1000)
@@ -173,7 +178,7 @@
                   (or (buffer-file-name) default-directory)
                   ".python-version"))
            (venv (and root
-                      (with-temp-buffer
+		      (with-temp-buffer
                         (insert-file-contents
                          (expand-file-name ".python-version" root))
                         (string-trim (buffer-string))))))
