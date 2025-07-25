@@ -51,7 +51,7 @@ HISTFILE=/home/kia/.config/zsh/.zsh_history
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git kitty)
+plugins=(git kitty direnv)
 
 source $ZSH/oh-my-zsh.sh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -88,8 +88,6 @@ export SSH_ASKPASS_REQUIRE=prefer
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# aliases
-
 # CONFIGS ---->
 alias vim="nvim"
 alias polyconfig="vim ~/.config/polybar/config"
@@ -104,5 +102,5 @@ alias swayconfig="nvim ~/.config/sway/config"
 # ALIASES ---->
 alias dotconfig='/usr/bin/git --git-dir=$HOME/.config/dotfiles/ --work-tree=$HOME'
 alias reinstallGrub='sudo grub-mkconfig -o /boot/grub/grub.cfg;sudo grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB'
-alias quickfix="sudo cat /sys/kernel/debug/dri/1/amdgpu_gpu_recover"
 alias psqlConnect="sudo -u postgres psql -h localhost"
+alias createPythonEnv="python -m venv ./; echo 'export VIRTUAL_ENV=./' >> .envrc; echo 'layout python3' >> .envrc; direnv allow"

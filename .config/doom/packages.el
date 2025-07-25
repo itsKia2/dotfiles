@@ -49,5 +49,6 @@
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
                                         ;(unpin! t)
 (package! treesit-auto)
+(package! pet)
 (package! nerd-icons-corfu)
 (package! fireplace)

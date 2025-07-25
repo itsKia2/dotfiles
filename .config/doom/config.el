@@ -162,32 +162,14 @@
 (setq password-cache-expiry nil)
 (setq password-cache 1)
 
-;; Use pyvenv package for managing Python virtual environments
-(use-package pyvenv
-  :ensure t
-  :init
-  (setenv "WORKON_HOME" "~/.pyenv/versions")
-  :hook (python-mode . my-python-mode-hook)
+;; python virtual envs
+(use-package pet
   :config
-
-  ;; Custom Python mode hook
-  (defun my-python-mode-hook ()
-    ;; Locating the virtual environment file (.python-version) in the directory tree
-    ;; and extracting its contents to use for setting up the virtual environment
-    (let* ((root (locate-dominating-file
-                  (or (buffer-file-name) default-directory)
-                  ".python-version"))
-           (venv (and root
-		      (with-temp-buffer
-                        (insert-file-contents
-                         (expand-file-name ".python-version" root))
-                        (string-trim (buffer-string))))))
-      ;; If a virtual environment is found, enable pyvenv mode,
-      ;; activate the virtual environment and restart lsp workspace
-      (when venv
-        (pyvenv-mode 1)
-        (pyvenv-workon venv)
-        (lsp-mode 1)))))
+  (add-hook 'python-base-mode-hook 'pet-mode -10)
+  (add-hook 'python-ts-mode-hook
+            (lambda ()
+              (setq-local python-shell-interpreter (pet-executable-find "python")
+                          python-shell-virtualenv-root (pet-virtualenv-root)))))
 
 ;;Recreating scratch buffer
 ;; If the *scratch* buffer is killed, recreate it automatically
