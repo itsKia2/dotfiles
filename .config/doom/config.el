@@ -84,6 +84,7 @@
 (add-hook 'dired-mode-hook 'auto-revert-mode)
 (lsp-dired-mode t)
 (remove-hook! 'dired-mode-hook #'dired-omit-mode)
+(setq dired-kill-when-opening-new-dired-buffer t)
 
 ;; doom dashboard settings
 ;;(remove-hook '+doom-dashboard-functions #'doom-dashboard-widget-shortmenu)
