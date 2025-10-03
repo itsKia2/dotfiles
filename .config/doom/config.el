@@ -57,6 +57,7 @@
 (setq lsp-java-format-on-type-enabled nil)
 (setq lsp-completion-show-detail t)
 (setq lsp-enable-on-type-formatting t)
+(setq lsp-enable-format-on-save t)
 
 (setq lsp-ui-peek-enable nil)
 (setq lsp-ui-doc-enable t)
