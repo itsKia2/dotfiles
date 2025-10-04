@@ -16,6 +16,9 @@ return {
     "j-hui/fidget.nvim",
   },
   config = function()
+    -- =====================
+    -- CAPABILITIES
+    -- =====================
     local cmp_lsp = require("cmp_nvim_lsp")
     local capabilities = vim.tbl_deep_extend(
       "force",
@@ -24,9 +27,15 @@ return {
       cmp_lsp.default_capabilities()
     )
 
+    -- =====================
+    -- PLUGIN SETUP
+    -- =====================
     require("fidget").setup({})
     require("mason").setup()
 
+    -- =====================
+    -- MASON-LSPCONFIG
+    -- =====================
     require("mason-lspconfig").setup({
       ensure_installed = {
         "ts_ls",
@@ -34,19 +43,21 @@ return {
         "ruff",
       },
       handlers = {
+        -- Default handler for all servers
         function(server_name)
-          require("lspconfig")[server_name].setup({
+          vim.lsp.config(server_name, {
             capabilities = capabilities,
           })
+          vim.lsp.enable(server_name)
         end,
+
+        -- Lua language server
         lua_ls = function()
-          require("lspconfig").lua_ls.setup({
+          vim.lsp.config("lua_ls", {
             capabilities = capabilities,
             settings = {
               Lua = {
-                runtime = {
-                  version = "LuaJIT",
-                },
+                runtime = { version = "LuaJIT" },
                 diagnostics = {
                   globals = { "vim", "love" },
                 },
@@ -58,15 +69,17 @@ return {
               },
             },
           })
+          vim.lsp.enable("lua_ls")
         end,
       },
     })
 
+    -- =====================
+    -- COMPLETION (nvim-cmp)
+    -- =====================
     local cmp = require("cmp")
     local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
-    -- this is the function that loads the extra snippets to luasnip
-    -- from rafamadriz/friendly-snippets
     require("luasnip.loaders.from_vscode").lazy_load()
 
     cmp.setup({
@@ -74,13 +87,10 @@ return {
         { name = "path" },
         { name = "nvim_lsp" },
         { name = "luasnip", keyword_length = 2 },
-        { name = "buffer",  keyword_length = 3 },
+        { name = "buffer", keyword_length = 3 },
       },
       mapping = cmp.mapping.preset.insert({
-        -- ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
-        -- ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
         ["<CR>"] = cmp.mapping.confirm({ select = true }),
-        -- ['<C-Space>'] = cmp.mapping.complete(),
       }),
       snippet = {
         expand = function(args)

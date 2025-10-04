@@ -8,6 +8,6 @@ return {
   config = function()
     vim.cmd.colorscheme("tokyonight")
     vim.opt.termguicolors = true
-    require('bufferline').setup {}
+    -- require('bufferline').setup {}
   end
 }
