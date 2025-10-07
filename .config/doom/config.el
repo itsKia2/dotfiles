@@ -19,8 +19,8 @@
 (setq doom-theme 'doom-moonlight)
 (setq display-line-numbers-mode t)
 (setq global-completion-preview-mode t)
-(set-face-attribute 'default nil :family "IBM Plex Mono" :height 110 :weight 'bold)
-(set-face-attribute 'variable-pitch nil :font "JetBrainsMono Nerd Font Mono-11" :weight 'light)
+(setq doom-font (font-spec :family "IBM Plex Mono" :size 12 :weight 'bold)
+      doom-variable-pitch-font (font-spec :family "IBM Plex Mono"))
 
 ;; tabs settings
 (setq-default indent-tabs-mode t)
