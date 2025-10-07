@@ -19,7 +19,7 @@
 (setq doom-theme 'doom-moonlight)
 (setq display-line-numbers-mode t)
 (setq global-completion-preview-mode t)
-(setq doom-font (font-spec :family "IBM Plex Mono" :size 15 :weight 'bold)
+(setq doom-font (font-spec :family "IBM Plex Mono" :size 14 :weight 'bold)
       doom-variable-pitch-font (font-spec :family "IBM Plex Mono"))
 
 ;; tabs settings
