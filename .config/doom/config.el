@@ -164,6 +164,11 @@
 (setq password-cache-expiry nil)
 (setq password-cache 1)
 
+;; key bindings for mac only
+(when (eq system-type 'darwin) ;; mac specific settings
+  (setq mac-command-modifier 'control)
+  )
+
 ;; python virtual envs
 ;; (use-package pet
 ;;   :config
