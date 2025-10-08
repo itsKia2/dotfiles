@@ -165,13 +165,13 @@
 (setq password-cache 1)
 
 ;; python virtual envs
-(use-package pet
-  :config
-  (add-hook 'python-base-mode-hook 'pet-mode -10)
-  (add-hook 'python-ts-mode-hook
-            (lambda ()
-              (setq-local python-shell-interpreter (pet-executable-find "python")
-                          python-shell-virtualenv-root (pet-virtualenv-root)))))
+;; (use-package pet
+;;   :config
+;;   (add-hook 'python-base-mode-hook 'pet-mode -10)
+;;   (add-hook 'python-ts-mode-hook
+;;             (lambda ()
+;;               (setq-local python-shell-interpreter (pet-executable-find "python")
+;;                           python-shell-virtualenv-root (pet-virtualenv-root)))))
 
 ;;Recreating scratch buffer
 ;; If the *scratch* buffer is killed, recreate it automatically

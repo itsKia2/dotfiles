@@ -52,3 +52,5 @@
 (package! pet)
 (package! nerd-icons-corfu)
 (package! fireplace)
+(package! zig-ts-mode
+          :recipe (:type git :host codeberg :repo "meow_king/zig-ts-mode"))
