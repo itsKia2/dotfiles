@@ -1,10 +1,11 @@
 
-;; zig treesitter not available by default - install manually
+;; add languages manually
 (setq treesit-language-source-alist
-      '((zig "https://github.com/maxxnino/tree-sitter-zig")))
-;; Install the grammar automatically if missing
-(unless (treesit-language-available-p 'zig)
-  (ignore-errors (treesit-install-language-grammar 'zig)))
+      '((zig "https://github.com/maxxnino/tree-sitter-zig")
+	(vue "https://github.com/ikatyang/tree-sitter-vue")))
+
+;; zig mode isnt supported so install sep from package.el
+(add-to-list 'auto-mode-alist '("\\.zig\\'" . zig-ts-mode))
 
 (dolist (mapping '((c-mode          . c-ts-mode)
                    (c++-mode        . c++-ts-mode)
@@ -78,5 +79,10 @@
 		  zig-ts-mode))
     (add-hook (intern (format "%s-hook" mode)) #'lsp-deferred)))
 
-;; zig mode isnt supported so install sep from package.el
-(add-to-list 'auto-mode-alist '("\\.zig\\'" . zig-ts-mode))
+;; Install the grammars automatically if missing
+(unless (treesit-language-available-p 'zig)
+  (ignore-errors (treesit-install-language-grammar 'zig)))
+
+(unless (treesit-language-available-p 'vue)
+  (ignore-errors (treesit-install-language-grammar 'vue)))
+

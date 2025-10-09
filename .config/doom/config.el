@@ -27,13 +27,6 @@
 (setq-default tab-width 4)
 (setq tab-width 4)
 
-;; disable ugly indentation highlighting
-(setq global-whitespace-mode nil)
-(setq whitespace-global-modes nil)
-
-;; Version control optimization
-(setq vc-handled-backends '(Git))
-
 ;; scrolling settings (supposedly makes it faster)
 (pixel-scroll-precision-mode 1)
 (pixel-scroll-mode nil)
@@ -54,19 +47,33 @@
 (load! "treesit")
 
 ;; lsp settings
-(setq lsp-java-format-on-type-enabled nil)
-(setq lsp-completion-show-detail t)
-(setq lsp-enable-on-type-formatting t)
-(setq lsp-enable-format-on-save t)
+(use-package lsp-mode
+  :commands (lsp lsp-deferred)
+  :config
+  (setq lsp-enable-which-key-integration t)
+  (setq lsp-completion-show-detail t)
+  (setq lsp-enable-on-type-formatting t)
+  (setq lsp-enable-format-on-save t)
+  (setq lsp-ui-peek-enable nil)
+  (setq lsp-ui-doc-enable t)
+  (setq lsp-ui-doc-show-with-cursor t)
+  (setq lsp-modeline-diagnostics-enable t)
+  (setq lsp-signature-render-documentation nil)
+  (setq lsp-completion-show-kind t))
 
-(setq lsp-ui-peek-enable nil)
-(setq lsp-ui-doc-enable t)
-(setq lsp-ui-doc-show-with-cursor t)
-(setq lsp-modeline-diagnostics-enable t)
-(setq lsp-signature-render-documentation nil)
-(setq lsp-completion-show-kind t)
+;; enable web mode with lsp
+(use-package web-mode
+  :hook
+  (web-mode . lsp-deferred)
+  :mode "\\.vue\\'"
 
-(use-package lsp-mode)
+  :config
+  (setq web-mode-enable-auto-indent t)
+  (setq web-mode-markup-indent-offset 2)
+  (setq web-mode-css-indent-offset 2)
+  (setq web-mode-code-indent-offset 2)
+  (setq web-mode-script-padding 0)
+  (setq web-mode-style-padding 0))
 
 ;; enable tramp mode for ssh
 (setq tramp-inline-compress-start-size 1000)
@@ -79,6 +86,13 @@
 
 ;; autosave (disabled with tramp)
 (setq auto-save-default t)
+
+;; disable ugly indentation highlighting
+(setq global-whitespace-mode nil)
+(setq whitespace-global-modes nil)
+
+;; Version control optimization
+(setq vc-handled-backends '(Git))
 
 ;; dired settings
 ;; Auto-refresh dired on file change
