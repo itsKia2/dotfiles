@@ -1,6 +1,13 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+# Path to your oh-my-zsh installation.
+if [[ $OSTYPE == darwin* ]]; then
+  export ZSH="$HOME/.oh-my-zsh/"
+else
+  export ZSH="$HOME/.local/share/.oh-my-zsh"
+fi 
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -57,13 +64,6 @@ source $ZSH/oh-my-zsh.sh
 # export MANPATH="/usr/local/man:$MANPATH"
 # RUST PATH
 export PATH="$HOME/.cargo/bin:$PATH"
-
-# Path to your oh-my-zsh installation.
-if [[ $OSTYPE == darwin* ]]; then
-  export ZSH="$HOME/.oh-my-zsh/"
-else
-  export ZSH="$HOME/.local/share/.oh-my-zsh"
-fi 
 
 # android sdk path
 export ANDROID_HOME=$HOME/Android/Sdk
