@@ -61,6 +61,12 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
+# using kde wallet to store the password
+# JUST MAKE SURE THAT ONLY ONE SSH-AGENT IS RUNNING
+# SSH askpass
+export SSH_ASKPASS=/usr/bin/ksshaskpass
+export SSH_ASKPASS_REQUIRE=prefer
+
 # export MANPATH="/usr/local/man:$MANPATH"
 # RUST PATH
 export PATH="$HOME/.cargo/bin:$PATH"
@@ -82,10 +88,6 @@ if [[ -n $SSH_CONNECTION ]]; then
 else
   export EDITOR='nvim'
 fi
-
-# SSH askpass
-export SSH_ASKPASS=/usr/bin/ksshaskpass
-export SSH_ASKPASS_REQUIRE=prefer
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
