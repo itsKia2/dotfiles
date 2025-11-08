@@ -27,6 +27,11 @@
 (setq-default tab-width 4)
 (setq tab-width 4)
 
+;; reduce startup noise
+(setq inhibit-compacting-font-caches t
+      inhibit-startup-screen t
+      initial-scratch-message nil)
+
 ;; scrolling settings (supposedly makes it faster)
 (pixel-scroll-precision-mode 1)
 (pixel-scroll-mode nil)
@@ -61,6 +66,17 @@
   (setq lsp-signature-render-documentation nil)
   (setq lsp-completion-show-kind t))
 
+;; test?
+(after! lsp-ui
+  (setq lsp-ui-doc-enable t
+        lsp-ui-doc-position 'at-point
+        lsp-ui-doc-max-height 8
+        lsp-ui-doc-max-width 72
+        lsp-ui-doc-show-with-cursor t
+        lsp-ui-doc-delay 0.5
+        lsp-ui-sideline-enable nil
+        lsp-ui-peek-enable t))
+
 ;; enable web mode with lsp
 (use-package web-mode
   :hook
@@ -81,8 +97,9 @@
 (setq tramp-chunksize 3000)
 (setq tramp-copy-size-limit 10000)
 (setq tramp-default-method "ssh")
-(setq projectile-mode-line "Projectile")
 (setq tramp-verbose 0)
+
+(setq projectile-mode-line "Projectile")
 
 ;; autosave (disabled with tramp)
 (setq auto-save-default t)
@@ -100,15 +117,6 @@
 (lsp-dired-mode t)
 (remove-hook! 'dired-mode-hook #'dired-omit-mode)
 (setq dired-kill-when-opening-new-dired-buffer t)
-
-;; doom dashboard settings
-;;(remove-hook '+doom-dashboard-functions #'doom-dashboard-widget-shortmenu)
-(setq fancy-splash-image (concat doom-user-dir "vagabond.png"))
-(setq +doom-dashboard-banner-padding '(2 . 3))
-(setq +doom-dashboard-menu-sections
-      (seq-filter (lambda (item)
-		    (member (car item) '("Recently opened files" "Open project" "Open private configuration")))
-		  +doom-dashboard-menu-sections))
 
 ;; vertico settings
 (setq vertico-resize t)
@@ -157,6 +165,8 @@
 ;; performance settings
 (setq gc-cons-threshold-original gc-cons-threshold)
 (setq gc-cons-threshold (* 1024 1024 100))
+(setq gcmh-idle-delay 5)
+(setq gcmh-high-cons-threshold (* 1024 1024 1024))
 (setq read-process-output-max (* 64 1024 1024))
 
 ;; automatically open latex pdf next to editor
@@ -191,6 +201,41 @@
 ;;             (lambda ()
 ;;               (setq-local python-shell-interpreter (pet-executable-find "python")
 ;;                           python-shell-virtualenv-root (pet-virtualenv-root)))))
+
+;; doom dashboard settings
+;;(remove-hook '+doom-dashboard-functions #'doom-dashboard-widget-shortmenu)
+(remove-hook '+doom-dashboard-functions #'doom-dashboard-widget-footer)
+(remove-hook '+doom-dashboard-functions #'doom-dashboard-widget-loaded)
+(setq fancy-splash-image (concat doom-user-dir "vagabond.png"))
+(setq +doom-dashboard-banner-padding '(2 . 3))
+(setq +doom-dashboard-menu-sections
+      (seq-filter (lambda (item)
+		    (member (car item) '("Recently opened files" "Open project" "Open private configuration")))
+		  +doom-dashboard-menu-sections))
+(defun +my/dashboard-footer ()
+  (insert "\n\n")
+  (let ((start (point)))
+    (insert
+     (+doom-dashboard--center
+      +doom-dashboard--width
+      (or (nerd-icons-mdicon "nf-md-moon_waning_crescent"
+                             :face `(:foreground "#ffffff"
+                                     :height 1.3
+                                     :v-adjust -0.15))
+          (propertize "☾"
+                      'face '(:height 1.3
+                              :v-adjust -0.15
+                              :inherit doom-dashboard-footer-icon)))))
+    (make-text-button start (point)
+                      'action (lambda (_) (browse-url "https://github.com/itsKia2"))
+                      'follow-link t
+                      'help-echo "See dotfiles"
+                      'face 'doom-dashboard-footer-icon
+                      'mouse-face 'highlight))
+  (insert "\n"))
+(add-hook! '+doom-dashboard-functions :append
+	   #'+my/dashboard-footer
+	   (insert "\n" (+doom-dashboard--center +doom-dashboard--width "Welcome Home, itsKia2")))
 
 ;;Recreating scratch buffer
 ;; If the *scratch* buffer is killed, recreate it automatically
