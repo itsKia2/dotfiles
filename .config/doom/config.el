@@ -51,6 +51,9 @@
 
 (load! "treesit")
 
+;; load linters in lint.el
+(load! "lint")
+
 ;; lsp settings
 (use-package lsp-mode
   :commands (lsp lsp-deferred)
@@ -66,7 +69,6 @@
   (setq lsp-signature-render-documentation nil)
   (setq lsp-completion-show-kind t))
 
-;; test?
 (after! lsp-ui
   (setq lsp-ui-doc-enable t
         lsp-ui-doc-position 'at-point
@@ -80,16 +82,7 @@
 ;; enable web mode with lsp
 (use-package web-mode
   :hook
-  (web-mode . lsp-deferred)
-  :mode "\\.vue\\'"
-
-  :config
-  (setq web-mode-enable-auto-indent t)
-  (setq web-mode-markup-indent-offset 2)
-  (setq web-mode-css-indent-offset 2)
-  (setq web-mode-code-indent-offset 2)
-  (setq web-mode-script-padding 0)
-  (setq web-mode-style-padding 0))
+  (web-mode . lsp-deferred))
 
 ;; enable tramp mode for ssh
 (setq tramp-inline-compress-start-size 1000)
