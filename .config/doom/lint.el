@@ -3,6 +3,14 @@
 ;; enable flycheck globally
 (add-hook 'after-init-hook #'global-flycheck-mode)
 
+;; use prettier for typescript/javascript formatting
+(when (executable-find "prettier")
+  (setq-hook! '(typescript-ts-mode-hook
+		tsx-ts-mode-hook
+		js-ts-mode-hook)
+    +format-with 'prettier
+    +format-with-lsp nil))
+
 (after! flycheck
   ;; Actionlint (GitHub Actions workflows)
   (when (executable-find "actionlint")
