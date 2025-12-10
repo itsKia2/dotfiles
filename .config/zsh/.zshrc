@@ -64,8 +64,13 @@ source $ZSH/oh-my-zsh.sh
 # using kde wallet to store the password
 # JUST MAKE SURE THAT ONLY ONE SSH-AGENT IS RUNNING
 # SSH askpass
-export SSH_ASKPASS=/usr/bin/ksshaskpass
-export SSH_ASKPASS_REQUIRE=prefer
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    export SSH_ASKPASS=/usr/bin/ksshaskpass
+    export SSH_ASKPASS_REQUIRE=prefer
+fi
+
+# load gpg agent env var
+export GPG_TTY=$(tty)
 
 # export MANPATH="/usr/local/man:$MANPATH"
 # RUST PATH
