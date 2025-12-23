@@ -6,9 +6,34 @@
     "gtk-layer-shell": true,
 
     // "modules-left": ["river/tags", "river/window",],
-    "modules-left": ["sway/mode", "sway/workspaces", "sway/window"],
+    // "modules-left": ["sway/mode", "sway/workspaces", "sway/window"],
+    "modules-left": ["hyprland/workspaces", "hyprland/window"],
     "modules-center": [],
     "modules-right": ["pulseaudio", "battery", "backlight", "network", "clock", "tray"],
+
+    "hyprland/workspaces": {
+        "active-only": false,
+        "all-outputs": true,
+        "format": "{icon}",
+        "format-icons": {
+            "1": "❶",
+            "2": "❷",
+            "3": "❸",
+            "4": "❹",
+            "5": "❺",
+            "6": "❻",
+            "7": "❼",
+            "8": "❽",
+            "9": "❾",
+            "urgent": "❗",
+            "default": "⬤"
+        }
+    },
+
+    "hyprland/window": {
+        "format": "{title}",
+        "max-length": 50
+    },
 
     "sway/mode": {
         "format": " {}",
