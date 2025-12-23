@@ -99,14 +99,11 @@ fi
 
 # CONFIGS ---->
 alias vim="nvim"
-alias polyconfig="vim ~/.config/polybar/config"
 alias zshconfig="vim ~/.config/zsh/.zshrc"
-alias bspconfig="vim ~/.config/bspwm/bspwmrc"
-alias sxhconfig="vim ~/.config/sxhkd/sxhkdrc"
-alias picomconfig="vim ~/.config/picom/picom.conf"
 alias riverconfig="vim ~/.config/river/init"
 alias waybarconfig="vim ~/.config/waybar/config ~/.config/waybar/style.css"
 alias swayconfig="nvim ~/.config/sway/config"
+alias hyprconfig="nvim ~/.config/hypr/hyprland.conf"
 
 # ALIASES ---->
 alias dotconfig='/usr/bin/git --git-dir=$HOME/.config/dotfiles/ --work-tree=$HOME'
