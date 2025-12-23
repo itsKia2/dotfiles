@@ -471,7 +471,7 @@
         "bluetoothHideUnnamedDevices": false,
         "fontDefault": "Noto Sans",
         "fontDefaultScale": 1,
-        "fontFixed": "monospace",
+        "fontFixed": "IBM Plex Mono",
         "fontFixedScale": 1,
         "panelBackgroundOpacity": 0.85,
         "panelsAttachedToBar": true,

@@ -1,176 +1,156 @@
 {
+  "layer": "top",
+  "position": "bottom",
+  "height": 30,
+  "margin": "6 8 8 8",
+  "spacing": 8,
 
-    "layer": "top",
-    "position": "bottom",
-    "height": 27,
-    "gtk-layer-shell": true,
+  "modules-left": [
+    "custom/launcher",
+    "hyprland/workspaces",
+	"hyprland/window",
+  ],
 
-    // "modules-left": ["river/tags", "river/window",],
-    // "modules-left": ["sway/mode", "sway/workspaces", "sway/window"],
-    "modules-left": ["hyprland/workspaces", "hyprland/window"],
-    "modules-center": [],
-    "modules-right": ["pulseaudio", "battery", "backlight", "network", "clock", "tray"],
+  "modules-center": [
+  ],
 
-    "hyprland/workspaces": {
-        "active-only": false,
-        "all-outputs": true,
-        "format": "{icon}",
-        "format-icons": {
-            "1": "❶",
-            "2": "❷",
-            "3": "❸",
-            "4": "❹",
-            "5": "❺",
-            "6": "❻",
-            "7": "❼",
-            "8": "❽",
-            "9": "❾",
-            "urgent": "❗",
-            "default": "⬤"
-        }
-    },
+  "modules-right": [
+    "backlight",
+    "pulseaudio",
+    "network",
+    "battery",
+    "clock",
+    "tray"
+  ],
 
-    "hyprland/window": {
-        "format": "{title}",
-        "max-length": 50
-    },
+  "custom/launcher": {
+    "format": "⩓",
+    "tooltip": false,
+    "on-click": "wofi --show drun"
+  },
 
-    "sway/mode": {
-        "format": " {}",
-        "max-length": 50
-    },
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "on-click": "activate",
+    "sort-by-number": true,
+    "format-icons": {
+        "1": "1",
+        "2": "2",
+        "3": "3",
+        "4": "4",
+        "5": "5",
+        "6": "6",
+        "7": "7",
+        "8": "8",
+        "9": "9",
+      "active": "",
+      "default": ""
+    }
+  },
 
-    "sway/workspaces": {
-        "disable-scroll": true,
-        "all-outputs": true,
-        "format": "{name}",
-    },
+  "hyprland/window": {
+     "format": "{title}",
+	 "max-length": 50
+  },
 
-    "sway/window": {
-        "format": "{title}",
-        "max-length": 50,
-    },
-
-    "battery": {
-        "interval": 10,
-        "states": {
-            "warning": 30,
-            "critical": 15
-        },
-        // Connected to AC
-        "format": "  {icon}  {capacity}%", // Icon: bolt
-        // Not connected to AC
-        "format-discharging": "{icon}  {capacity}%",
-        "on-click": "",
-        "format-icons": [
-            "", // Icon: battery-full
-            "", // Icon: battery-three-quarters
-            "", // Icon: battery-half
-            "", // Icon: battery-quarter
-            ""  // Icon: battery-empty
-        ],
-        "tooltip": true
-    },
-
-    "river/window": {
-        "format": "{}",
-        "max-length": 60
-    },
-
-    "clock": {
-        "format": "{:%b %d (%a) %I:%M %p}  ",
-        "format-alt": "{:%A, %B %d, %Y (%R)}  ",
-        "tooltip-format": "<tt><small>{calendar}</small></tt>",
-        "calendar": {
-            "mode"          : "month",
-            "mode-mon-col"  : 3,
-            "weeks-pos"     : "right",
-            "on-scroll"     : 1,
-            "format": {
-                "months":     "<span color='#ffead3'><b>{}</b></span>",
-                "days":       "<span color='#ecc6d9'><b>{}</b></span>",
-                "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
-                "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
-                "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
-            }
-        },
-        "actions":  {
-            "on-click-right": "mode",
-            "on-click-forward": "tz_up",
-            "on-click-backward": "tz_down",
-            "on-scroll-up": "shift_up",
-             "on-scroll-down": "shift_down"
-        }
-    },
-    
-    "river/tags": {
-        "num-tags": 9
-    },
-
-    "cpu": {
-        "interval": 10,
-        "format": "   {}% ",
-        "max-length": 10,
-   },
+  "clock": {
+    // "format": "{:%I:%M %p}",
+	"format": "{:%b %d (%a) %I:%M %p}  ",
+	"format-alt": "{:%A, %B %d, %Y (%R)}  ",
+    "tooltip": true,
+	"tooltip-format": "<tt><small>{calendar}</small></tt>",
+	"calendar": {
+		"mode"          : "month",
+		"mode-mon-col"  : 3,
+		"weeks-pos"     : "right",
+		"on-scroll"     : 1,
+		"format": {
+			"months":     "<span color='#ffead3'><b>{}</b></span>",
+			"days":       "<span color='#ecc6d9'><b>{}</b></span>",
+			"weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
+			"weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+			"today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+		}
+	},
+	"actions":  {
+		"on-click-right": "mode",
+		"on-click-forward": "tz_up",
+		"on-click-backward": "tz_down",
+		"on-scroll-up": "shift_up",
+			"on-scroll-down": "shift_down"
+	}
+  },
 
    "backlight": {
         "device": "intel_backlight",
         "format": "{percent}% {icon}",
         "format-icons": ["", ""],
-        "on-scroll-up": "light -A 1",
-        "on-scroll-down": "light -U 1",
+        "on-scroll-up": "brightnessctl set +1%",
+        "on-scroll-down": "brightnessctl set 1%-",
         "on-click": "",
     },
 
-  "memory": {
-       "interval": 30,
-       "format": "  {used:0.1f}G/{total:0.1f}G "
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-muted": "󰝟",
+    "format-icons": {
+      "default": ["󰕿", "󰖀", "󰕾"]
+    },
+    "on-click": "pavucontrol"
   },
+
   "network": {
-     "interface": "wlp1s0",
-     "format": "{ifname}",
-     "format-wifi": "   {essid}  ",
-     "format-ethernet": "  {ifname} ",
-     "format-disconnected": "", //An empty format will hide the module.
-     "format-disconnected": "",
-     "tooltip-format": "{ifname}",
-     "tooltip-format-wifi": "  {essid} ({signalStrength}%)  ",
-     "tooltip-format-ethernet": " {ifname} ",
-     "tooltip-format-disconnected": "Disconnected",
-     "max-length": 50,
-     "on-click": "",
-},
-    
-    "wlr/taskbar": {
-        "all-outputs": false,
-	    "current-only": false,
-        "format": "{icon}",
-        "icon-size": 12,
-        "icon-theme": "Papirus",
-        "tooltip-format": "{title}",
-        //"on-click": "activate",
-        // "on-click-middle": "close"
-    },
-   
-	"pulseaudio": {
-		"format": "{icon} {volume}%",
-        "format-muted": "Muted",
-        "format-bluetooth": "  {volume}%",
-        "format-icons": {
-            "headphone": "",
-            "hands-free": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
-            "default": ["", "", ""]
-        },
-        "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
-    },
+    "format-wifi": "󰤨 {essid}",
+    "format-ethernet": "󰈀",
+    "format-disconnected": "󰤭",
+    "tooltip": false
+  },
 
-    "tray": {
-        "icon-size": 16,
-        "spacing": 5,
-   },
+  "battery": {
+    "format": " {icon} {capacity}%",
+	"format-discharging": "{icon}  {capacity}%",
+    "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+  },
 
+  "tray": {
+    "icon-size": 16,
+    "spacing": 6
+  },
+
+	"river/window": {
+		"format": "{}",
+		"max-length": 60
+	},
+
+	"river/tags": {
+		"num-tags": 9
+	},
+
+	"wlr/taskbar": {
+		"all-outputs": false,
+		"current-only": false,
+		"format": "{icon}",
+		"icon-size": 12,
+		"icon-theme": "Papirus",
+		"tooltip-format": "{title}",
+		//"on-click": "activate",
+		// "on-click-middle": "close"
+	},
+
+
+	"sway/mode": {
+		"format": " {}",
+		"max-length": 50
+	},
+
+	"sway/workspaces": {
+		"disable-scroll": true,
+		"all-outputs": true,
+		"format": "{name}",
+	},
+
+	"sway/window": {
+		"format": "{title}",
+		"max-length": 50,
+	},
 }
