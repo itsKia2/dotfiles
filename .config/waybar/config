@@ -1,156 +1,156 @@
 {
-  "layer": "top",
-  "position": "bottom",
-  "height": 30,
-  "margin": "6 8 8 8",
-  "spacing": 8,
+    "layer": "top",
+        "position": "bottom",
+        "height": 30,
+        "margin": "6 8 8 8",
+        "spacing": 8,
 
-  "modules-left": [
-    "custom/launcher",
-    "hyprland/workspaces",
-	"hyprland/window",
-  ],
+        "modules-left": [
+            "custom/launcher",
+            "hyprland/workspaces",
+            "hyprland/window",
+        ],
 
-  "modules-center": [
-  ],
+        "modules-center": [
+        ],
 
-  "modules-right": [
-    "backlight",
-    "pulseaudio",
-    "network",
-    "battery",
-    "clock",
-    "tray"
-  ],
+        "modules-right": [
+            "backlight",
+            "pulseaudio",
+            "network",
+            "battery",
+            "clock",
+            "tray"
+        ],
 
-  "custom/launcher": {
-    "format": "⩓",
-    "tooltip": false,
-    "on-click": "wofi --show drun"
-  },
+        "custom/launcher": {
+            "format": "⩓",
+            "tooltip": false,
+            "on-click": "wofi --show drun"
+        },
 
-  "hyprland/workspaces": {
-    "format": "{icon}",
-    "on-click": "activate",
-    "sort-by-number": true,
-    "format-icons": {
-        "1": "1",
-        "2": "2",
-        "3": "3",
-        "4": "4",
-        "5": "5",
-        "6": "6",
-        "7": "7",
-        "8": "8",
-        "9": "9",
-      "active": "",
-      "default": ""
-    }
-  },
+        "hyprland/workspaces": {
+            "format": "{icon}",
+            "on-click": "activate",
+            "sort-by-number": true,
+            "format-icons": {
+                "1": "1",
+                "2": "2",
+                "3": "3",
+                "4": "4",
+                "5": "5",
+                "6": "6",
+                "7": "7",
+                "8": "8",
+                "9": "9",
+                "active": "",
+                "default": ""
+            }
+        },
 
-  "hyprland/window": {
-     "format": "{title}",
-	 "max-length": 50
-  },
+        "hyprland/window": {
+            "format": "{title}",
+            "max-length": 50
+        },
 
-  "clock": {
-    // "format": "{:%I:%M %p}",
-	"format": "{:%b %d (%a) %I:%M %p}  ",
-	"format-alt": "{:%A, %B %d, %Y (%R)}  ",
-    "tooltip": true,
-	"tooltip-format": "<tt><small>{calendar}</small></tt>",
-	"calendar": {
-		"mode"          : "month",
-		"mode-mon-col"  : 3,
-		"weeks-pos"     : "right",
-		"on-scroll"     : 1,
-		"format": {
-			"months":     "<span color='#ffead3'><b>{}</b></span>",
-			"days":       "<span color='#ecc6d9'><b>{}</b></span>",
-			"weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
-			"weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
-			"today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
-		}
-	},
-	"actions":  {
-		"on-click-right": "mode",
-		"on-click-forward": "tz_up",
-		"on-click-backward": "tz_down",
-		"on-scroll-up": "shift_up",
-			"on-scroll-down": "shift_down"
-	}
-  },
+        "clock": {
+            // "format": "{:%I:%M %p}",
+            "format": "{:%b %d (%a) %I:%M %p}  ",
+            "format-alt": "{:%A, %B %d, %Y (%R)}  ",
+            "tooltip": true,
+            "tooltip-format": "<tt><small>{calendar}</small></tt>",
+            "calendar": {
+                "mode"          : "month",
+                "mode-mon-col"  : 3,
+                "weeks-pos"     : "right",
+                "on-scroll"     : 1,
+                "format": {
+                    "months":     "<span color='#ffead3'><b>{}</b></span>",
+                    "days":       "<span color='#ecc6d9'><b>{}</b></span>",
+                    "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
+                    "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+                    "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+                }
+            },
+            "actions":  {
+                "on-click-right": "mode",
+                "on-click-forward": "tz_up",
+                "on-click-backward": "tz_down",
+                "on-scroll-up": "shift_up",
+                "on-scroll-down": "shift_down"
+            }
+        },
 
-   "backlight": {
-        "device": "intel_backlight",
-        "format": "{percent}% {icon}",
-        "format-icons": ["", ""],
-        "on-scroll-up": "brightnessctl set +1%",
-        "on-scroll-down": "brightnessctl set 1%-",
-        "on-click": "",
-    },
+        "backlight": {
+            "device": "intel_backlight",
+            "format": "{percent}% {icon}",
+            "format-icons": ["", ""],
+            "on-scroll-up": "brightnessctl set +1%",
+            "on-scroll-down": "brightnessctl set 1%-",
+            "on-click": "",
+        },
 
-  "pulseaudio": {
-    "format": "{icon} {volume}%",
-    "format-muted": "󰝟",
-    "format-icons": {
-      "default": ["󰕿", "󰖀", "󰕾"]
-    },
-    "on-click": "pavucontrol"
-  },
+        "pulseaudio": {
+            "format": "{icon} {volume}%",
+            "format-muted": "󰝟",
+            "format-icons": {
+                "default": ["󰕿", "󰖀", "󰕾"]
+            },
+            "on-click": "pavucontrol"
+        },
 
-  "network": {
-    "format-wifi": "󰤨 {essid}",
-    "format-ethernet": "󰈀",
-    "format-disconnected": "󰤭",
-    "tooltip": false
-  },
+        "network": {
+            "format-wifi": "󰤨 {essid}",
+            "format-ethernet": "󰈀",
+            "format-disconnected": "󰤭",
+            "tooltip": false
+        },
 
-  "battery": {
-    "format": " {icon} {capacity}%",
-	"format-discharging": "{icon}  {capacity}%",
-    "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
-  },
+        "battery": {
+            "format": " {icon} {capacity}%",
+            "format-discharging": "{icon}  {capacity}%",
+            "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+        },
 
-  "tray": {
-    "icon-size": 16,
-    "spacing": 6
-  },
+        "tray": {
+            "icon-size": 16,
+            "spacing": 6
+        },
 
-	"river/window": {
-		"format": "{}",
-		"max-length": 60
-	},
+        "river/window": {
+            "format": "{}",
+            "max-length": 60
+        },
 
-	"river/tags": {
-		"num-tags": 9
-	},
+        "river/tags": {
+            "num-tags": 9
+        },
 
-	"wlr/taskbar": {
-		"all-outputs": false,
-		"current-only": false,
-		"format": "{icon}",
-		"icon-size": 12,
-		"icon-theme": "Papirus",
-		"tooltip-format": "{title}",
-		//"on-click": "activate",
-		// "on-click-middle": "close"
-	},
+        "wlr/taskbar": {
+            "all-outputs": false,
+            "current-only": false,
+            "format": "{icon}",
+            "icon-size": 12,
+            "icon-theme": "Papirus",
+            "tooltip-format": "{title}",
+            //"on-click": "activate",
+            // "on-click-middle": "close"
+        },
 
 
-	"sway/mode": {
-		"format": " {}",
-		"max-length": 50
-	},
+        "sway/mode": {
+            "format": " {}",
+            "max-length": 50
+        },
 
-	"sway/workspaces": {
-		"disable-scroll": true,
-		"all-outputs": true,
-		"format": "{name}",
-	},
+        "sway/workspaces": {
+            "disable-scroll": true,
+            "all-outputs": true,
+            "format": "{name}",
+        },
 
-	"sway/window": {
-		"format": "{title}",
-		"max-length": 50,
-	},
+        "sway/window": {
+            "format": "{title}",
+            "max-length": 50,
+        },
 }
