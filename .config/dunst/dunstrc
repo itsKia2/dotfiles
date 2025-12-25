@@ -12,7 +12,6 @@ frame_width = 1
 transparency = 5
 sort = no
 idle_threshold = 120
-font = Fira Sans 10
 line_height = 4
 markup = full
 format = %s\n%b

@@ -2,6 +2,7 @@
 # sway wofi waybar dunst swaybg swaylock swayidle
 # grim slurp
 # xdg-desktop-portal-wlr network-manager-applet blueman brightnessctl playerctl
+# fonts: jetbrains mono nerd (waybar), ibm plex mono (kitty) - install as needed
 
 ### Variables
 

@@ -18,8 +18,10 @@
     margin: 0 2px;
 }
 
-#workspaces {
-    padding: 4px 6px;
+.modules-left,
+.modules-center,
+.modules-right {
+    padding: 4px 10px;
 }
 
 #custom-launcher {
@@ -32,16 +34,14 @@ window#waybar {
     border: 1px solid rgba(120, 120, 120, 0.2);
 }
 
-.modules-left,
-.modules-center,
-.modules-right {
-    padding: 4px 10px;
-}
-
 #custom-launcher {
     font-size: 18px;
     padding: 0 10px;
     color: #89b4fa;
+}
+
+#workspaces {
+    padding: 4px 6px;
 }
 
 #workspaces button {
@@ -53,6 +53,7 @@ window#waybar {
 
 #workspaces button.active {
     color: #cdd6f4;
+    background: rgba(205, 214, 244, 0.15);
 }
 
 #clock {
