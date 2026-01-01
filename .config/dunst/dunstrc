@@ -51,7 +51,7 @@ timeout = 5
 background = "#1d1f21"
 foreground = "#ecf0ed"
 frame_color = "#595958"
-fullscreen = pushback
+fullscreen = show
 
 [urgency_critical]
 timeout = 0
@@ -73,7 +73,7 @@ fullscreen = show
 # background = "#1E222A"
 # foreground = "#F2F2F2"
 # frame_color = "#595958"
-# fullscreen = pushback
+# fullscreen = show
 # 
 # [urgency_critical]
 # timeout = 0
