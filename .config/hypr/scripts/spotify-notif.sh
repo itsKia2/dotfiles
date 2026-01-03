@@ -3,7 +3,7 @@
 CACHE_DIR="$HOME/.cache/spotify-art"
 mkdir -p "$CACHE_DIR"
 
-playerctl metadata --follow --format '{{mpris:artUrl}}|{{artist}}|{{title}}' |
+playerctl metadata --player=spotify --follow --format '{{mpris:artUrl}}|{{artist}}|{{title}}' |
 while IFS='|' read -r art artist title; do
     [ -z "$title" ] && continue
 
