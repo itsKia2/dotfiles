@@ -78,3 +78,8 @@
     foreground     = "#ecf0ed"
     frame_color   = "#595958"
     fullscreen    = show
+
+[spotify]
+    appname        = "Spotify"
+    frame_color    = "#1DB954"
+    background     = "#191414"
