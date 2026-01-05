@@ -186,15 +186,6 @@
   (setq mac-command-modifier 'control)
   )
 
-;; python virtual envs
-;; (use-package pet
-;;   :config
-;;   (add-hook 'python-base-mode-hook 'pet-mode -10)
-;;   (add-hook 'python-ts-mode-hook
-;;             (lambda ()
-;;               (setq-local python-shell-interpreter (pet-executable-find "python")
-;;                           python-shell-virtualenv-root (pet-virtualenv-root)))))
-
 ;; doom dashboard settings
 ;;(remove-hook '+doom-dashboard-functions #'doom-dashboard-widget-shortmenu)
 (remove-hook '+doom-dashboard-functions #'doom-dashboard-widget-footer)

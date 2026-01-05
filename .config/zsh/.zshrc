@@ -84,6 +84,14 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 #export path
 export PATH=$HOME/.local/bin:$PATH
 
+# pyenv setup only if installed
+if [ -d "$HOME/.pyenv" ]; then
+    export PYENV_ROOT="$HOME/.pyenv"
+    export PATH="$PYENV_ROOT/bin:$PATH"
+    eval "$(pyenv init --path)"
+    eval "$(pyenv init -)"
+fi
+
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
 
@@ -97,6 +105,16 @@ fi
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
+# FUNCTIONS ---->
+createPythonEnv() {
+  python -m venv ./.venv
+  cat > .envrc <<'EOF'
+layout pyenv
+layout python
+EOF
+  direnv allow
+}
+
 # CONFIGS ---->
 alias vim="nvim"
 alias zshconfig="vim ~/.config/zsh/.zshrc"
@@ -109,4 +127,3 @@ alias hyprconfig="nvim ~/.config/hypr/hyprland.conf"
 alias dotconfig='/usr/bin/git --git-dir=$HOME/.config/dotfiles/ --work-tree=$HOME'
 alias reinstallGrub='sudo grub-mkconfig -o /boot/grub/grub.cfg;sudo grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB'
 alias psqlConnect="sudo -u postgres psql -h localhost"
-alias createPythonEnv="python -m venv ./; echo 'export VIRTUAL_ENV=./' >> .envrc; echo 'layout python3' >> .envrc; direnv allow"
