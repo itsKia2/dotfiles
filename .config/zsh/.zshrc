@@ -127,3 +127,5 @@ alias hyprconfig="nvim ~/.config/hypr/hyprland.conf"
 alias dotconfig='/usr/bin/git --git-dir=$HOME/.config/dotfiles/ --work-tree=$HOME'
 alias reinstallGrub='sudo grub-mkconfig -o /boot/grub/grub.cfg;sudo grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB'
 alias psqlConnect="sudo -u postgres psql -h localhost"
+alias mts2mkv='f(){ ffmpeg -i "$1" -c copy "${1%.MTS}.mkv"; unset -f f; }; f'
+alias plexme='sudo systemctl start plexmediaserver.service; sudo systemctl start bazarr.service; sudo systemctl start radarr.service; sudo systemctl start sonarr.service'
