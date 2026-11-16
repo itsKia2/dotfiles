@@ -1,0 +1,6 @@
+[Unit]
+Description=Sync qBittorrent port with ProtonVPN
+
+[Service]
+Type=oneshot
+ExecStart=%h/.config/proton-qbt-port/proton-qbt-port.sh

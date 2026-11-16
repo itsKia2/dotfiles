@@ -1,0 +1,9 @@
+[Unit]
+Description=Check ProtonVPN forwarded port 2 min after login, then hourly
+
+[Timer]
+OnStartupSec=2min
+OnUnitActiveSec=1h
+
+[Install]
+WantedBy=timers.target
